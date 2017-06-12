@@ -1,17 +1,20 @@
 package fiuba.algo3.tp1;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Chats {
-	private List<Chat> chats;  
+public abstract class Chats {
 	
-	public Chats() 
-	{
-		chats = new ArrayList<Chat>();
-	}
-	
-	public int getCantidadDeContactos() 
+	public abstract int cantidadDeChats();
+	public abstract int cantidadDeMensajesEnviados();
+	public abstract int cantidadTotalMensajesRecibidos();
+	public abstract int cantidadTotalMensajesEnviados();
+	public abstract boolean existeChat(String nombreChat);
+	public abstract List<String> obtenerConversacionCon(String nombreChat);
+	public abstract void enviarMensajeA(String nombreChat, String mensaje);
+	public abstract void borrarMensajes(String nombreChat);
+
+
+/*	public int getCantidadDeContactos() 
 	{
 		return chats.size();
 	}
@@ -112,5 +115,5 @@ public class Chats {
 			return contacto.getConversacion(nombreContacto);
 		}
 		return null;
-	}
+	}*/
 }

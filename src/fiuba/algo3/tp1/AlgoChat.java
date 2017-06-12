@@ -1,5 +1,4 @@
 package fiuba.algo3.tp1;
-
 import java.util.List;
 
 public class AlgoChat {
@@ -7,7 +6,7 @@ public class AlgoChat {
 	private Usuario usuario;
 	private ChatsIndividuales chatsIndividuales;
 	private ChatsGrupales chatsGrupales;
-
+	
 	
 	public AlgoChat(String nombreUsuario) {
 		usuario = new Usuario(nombreUsuario);
@@ -16,23 +15,23 @@ public class AlgoChat {
 	}
 
 	public int cantidadDeChatsIndividuales() {
-		return 0;
+		return chatsIndividuales.cantidadDeChats();
 	}
 
 	public int cantidadDeContactos() {
-		return chatsIndividuales.getCantidadDeContactos();
+		return chatsIndividuales.cantidadDeContactos();
 	}
 	
 	public int cantidadDeChatsGrupales() {
-		return 0;
+		return chatsGrupales.cantidadDeChats();
 	}
 
 	public int cantidadDeGrupos() {
-		return 0;
+		return chatsGrupales.cantidadDeGrupos();
 	}
 
 	public int cantidadDeMensajesEnviados() {
-		return 0;
+		return chatsIndividuales.cantidadDeMensajesEnviados() + chatsGrupales.cantidadDeMensajesEnviados();
 	}
 
 	public String nombreUsuario() {
@@ -40,11 +39,11 @@ public class AlgoChat {
 	}
 
 	public void agregarContacto(String nombreContacto) {
-		chatsIndividuales.agregarChat(nombreContacto);
+		chatsIndividuales.agregarContacto(nombreContacto);
 	}
 
 	public boolean existeContacto(String nombreContacto) {
-		return chatsIndividuales.existeContacto(nombreContacto);
+		return chatsIndividuales.existeChat(nombreContacto);
 	}
 
 	public void recibirMensajeDe(String nombreContacto, String mensaje) {
@@ -52,76 +51,74 @@ public class AlgoChat {
 	}
 
 	public int cantidadTotalMensajesRecibidos() {
-		return chatsIndividuales.cantidadTotalMensajesRecibidos();
+		return chatsIndividuales.cantidadTotalMensajesRecibidos() + chatsGrupales.cantidadTotalMensajesRecibidos();
 	}
 
 	public int cantidadMensajesDe(String nombreContacto) {
 		return chatsIndividuales.cantidadMensajesDe(nombreContacto);
 	}
 
-	public void enviarMensajeA(String nombreContacto, String mensaje) {
-		chatsIndividuales.enviarMensajeA(nombreContacto, mensaje);
+	public void enviarMensajeA(String nombreChat, String mensaje) {
+		chatsIndividuales.enviarMensajeA(nombreChat, mensaje);
 	}
 
 	public int cantidadTotalMensajesEnviados() {
-		return chatsIndividuales.cantidadDeMensajesEnviados();
+		return chatsIndividuales.cantidadTotalMensajesEnviados() + chatsGrupales.cantidadTotalMensajesEnviados();
 	}
 
 	public int cantidadMensajesEnviadosA(String nombreContacto) {
 		return chatsIndividuales.cantidadMensajesEnviadosA(nombreContacto);
 	}
 
-	public List<String> obtenerConversacionCon(String nombreContacto) {
-		return chatsIndividuales.obtenerConversacionCon(nombreContacto);
+	public List<String> obtenerConversacionCon(String nombreChat) {
+		return chatsIndividuales.obtenerConversacionCon(nombreChat);
 	}
 
 	public void crearGrupo(String nombreGrupo) {
-		chatsGrupales.agregarChat(nombreGrupo);
-		
+		chatsGrupales.crearGrupo(nombreGrupo);	
 	}
 
 	public void agregarContactoAGrupo(String nombreGrupo, String nombreContacto) {
 		chatsGrupales.agregarContactoAGrupo(nombreGrupo, nombreContacto);
 	}
 
-	public Object cantidadMiembrosEnGrupo(String string) {
-		// TODO Auto-generated method stub
-		return null;
+	public int cantidadMiembrosEnGrupo(String nombreGrupo) {
+		return chatsGrupales.cantidadMiembrosEnGrupo(nombreGrupo);
 	}
 
-	public boolean existeGrupo(String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean existeGrupo(String nombreGrupo) {
+		return chatsGrupales.existeChat(nombreGrupo);
 	}
 
-	public void recibirMensajeDeGrupo(String string, String string2, String string3) {
-		// TODO Auto-generated method stub
-		
+	public void recibirMensajeDeGrupo(String nombreGrupo, String nombreContacto, String mensaje) {
+		chatsGrupales.recibirMensajeDeGrupo(nombreGrupo, nombreContacto, mensaje);
 	}
 
-	public void enviarMensajeAGrupo(String string, String string2) {
-		// TODO Auto-generated method stub
-		
+	public void enviarMensajeAGrupo(String nombreChat, String mensaje) {
+		chatsGrupales.enviarMensajeA(nombreChat, mensaje);
 	}
 
-	public Object cantidadMensajesRecibidosDelGrupo(String string) {
-		return null;
+	public int cantidadMensajesRecibidosDelGrupo(String nombreGrupo) {
+		return chatsGrupales.cantidadMensajesRecibidosDelGrupo(nombreGrupo);
 	}
 
-	public Object cantidadMensajesEnviadosAlGrupo(String string) {
-		return null;
-	}
-
-	public void borrarMensajesDelContacto(String string) {
-		
+	public int cantidadMensajesEnviadosAlGrupo(String nombreGrupo) {
+		return chatsGrupales.cantidadMensajesEnviadosAlGrupo(nombreGrupo);
 	}
 	
-	public void borrarMensajesDelGrupo(String string) {
-		
+	public List<String> obtenerConversacionConGrupo(String nombreChat) {
+		return chatsGrupales.obtenerConversacionCon(nombreChat);
 	}
 
+	public void borrarMensajesDelContacto(String nombreChat) {
+		chatsIndividuales.borrarMensajes(nombreChat);
+	}
+	
+	public void borrarMensajesDelGrupo(String nombreChat) {
+		chatsGrupales.borrarMensajes(nombreChat);
+	}
 
-
+	
 
 
 }
