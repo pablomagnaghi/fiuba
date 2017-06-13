@@ -7,91 +7,96 @@ public class ChatsGrupales extends Chats {
 
 	private List<Grupo> grupos;
 
+	private Grupo getGrupo(String nombre) {
+		for (Grupo grupo : grupos) {
+			if (grupo.getNombre().equals(nombre)) {
+				return grupo;
+			}
+		}
+		return null;
+	}
+	
 	public ChatsGrupales() {
 		grupos = new ArrayList<Grupo>();
 	}
 
 	public int cantidadDeGrupos() {
-		// TODO Auto-generated method stub
-		return 0;
+		return grupos.size();
 	}
 	
-	public void crearGrupo(String nombreGrupo) {
-		// TODO Auto-generated method stub
-		
+	public void crearGrupo(String nombreGrupo, String administrador) {
+		grupos.add(new Grupo(nombreGrupo, administrador));
 	}
 
-	public void agregarContactoAGrupo(String nombreGrupo, String nombreContacto) {
-		// TODO Auto-generated method stub
-		
+	public void agregarContactoAGrupo(String nombreContacto, String nombreGrupo) {
+		getGrupo(nombreGrupo).agregarContacto(nombreContacto);
 	}
 
 	public int cantidadMiembrosEnGrupo(String nombreGrupo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return getGrupo(nombreGrupo).cantidadMiembros();
 	}
 
 	public void recibirMensajeDeGrupo(String nombreGrupo, String nombreContacto, String mensaje) {
-		// TODO Auto-generated method stub
-		
+		getGrupo(nombreGrupo).recibirMensajeDe(nombreContacto, mensaje);
 	}
 
 	public int cantidadMensajesRecibidosDelGrupo(String nombreGrupo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return getGrupo(nombreGrupo).cantidadTotalMensajesRecibidos();
 	}
 
 	public int cantidadMensajesEnviadosAlGrupo(String nombreGrupo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return getGrupo(nombreGrupo).cantidadTotalMensajesEnviados();
 	}
 
 	@Override
 	public int cantidadDeChats() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int cantidadDeMensajesEnviados() {
-		// TODO Auto-generated method stub
-		return 0;
+		return grupos.size();
 	}
 
 	@Override
 	public int cantidadTotalMensajesRecibidos() {
-		// TODO Auto-generated method stub
-		return 0;
+		int mensajesRecibidos = 0;
+		for (Grupo grupo : grupos) {
+			mensajesRecibidos += grupo.cantidadTotalMensajesRecibidos();
+		}
+		return mensajesRecibidos;
 	}
 
 	@Override
 	public int cantidadTotalMensajesEnviados() {
-		// TODO Auto-generated method stub
-		return 0;
+		int mensajesEnviados = 0;
+		for (Grupo grupo : grupos) {
+			mensajesEnviados += grupo.cantidadTotalMensajesEnviados();
+		}
+		return mensajesEnviados;
 	}
 
 	@Override
-	public boolean existeChat(String nombreChat) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean existeChat(String nombre) {
+		return getGrupo(nombre) != null;
 	}
 
 	@Override
-	public List<String> obtenerConversacionCon(String nombreChat) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<String> obtenerConversacionCon(String nombre) {
+		return getGrupo(nombre).obtenerConversacion();
 	}
 
 	@Override
-	public void enviarMensajeA(String nombreChat, String mensaje) {
-		// TODO Auto-generated method stub
-		
+	public void enviarMensajeA(String nombre, String mensaje) {
+		getGrupo(nombre).enviarMensaje(mensaje);
 	}
 
 	@Override
-	public void borrarMensajes(String nombreChat) {
-		// TODO Auto-generated method stub
-		
+	public void borrarMensajes(String nombre) {
+		getGrupo(nombre).borrarMensajes();
+	}
+
+	public int cantidadMensajesRecibidosDe(String nombreContacto) {
+		int mensajesRecibidos = 0;
+		for (Grupo grupo : grupos) {
+			mensajesRecibidos += grupo.cantidadMensajesRecibidosDe(nombreContacto);
+		}
+		return mensajesRecibidos;		
 	}
 
 

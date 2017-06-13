@@ -31,7 +31,7 @@ public class AlgoChat {
 	}
 
 	public int cantidadDeMensajesEnviados() {
-		return chatsIndividuales.cantidadDeMensajesEnviados() + chatsGrupales.cantidadDeMensajesEnviados();
+		return chatsIndividuales.cantidadTotalMensajesEnviados() + chatsGrupales.cantidadTotalMensajesEnviados();
 	}
 
 	public String nombreUsuario() {
@@ -39,7 +39,7 @@ public class AlgoChat {
 	}
 
 	public void agregarContacto(String nombreContacto) {
-		chatsIndividuales.agregarContacto(nombreContacto);
+		chatsIndividuales.agregarChatConContacto(nombreContacto);
 	}
 
 	public boolean existeContacto(String nombreContacto) {
@@ -55,7 +55,7 @@ public class AlgoChat {
 	}
 
 	public int cantidadMensajesDe(String nombreContacto) {
-		return chatsIndividuales.cantidadMensajesDe(nombreContacto);
+		return chatsIndividuales.cantidadMensajesRecibidosDe(nombreContacto) + chatsGrupales.cantidadMensajesRecibidosDe(nombreContacto);
 	}
 
 	public void enviarMensajeA(String nombreChat, String mensaje) {
@@ -75,11 +75,11 @@ public class AlgoChat {
 	}
 
 	public void crearGrupo(String nombreGrupo) {
-		chatsGrupales.crearGrupo(nombreGrupo);	
+		chatsGrupales.crearGrupo(nombreGrupo, usuario.getNombre());	
 	}
 
-	public void agregarContactoAGrupo(String nombreGrupo, String nombreContacto) {
-		chatsGrupales.agregarContactoAGrupo(nombreGrupo, nombreContacto);
+	public void agregarContactoAGrupo(String nombreContacto, String nombreGrupo) {
+		chatsGrupales.agregarContactoAGrupo(nombreContacto, nombreGrupo);
 	}
 
 	public int cantidadMiembrosEnGrupo(String nombreGrupo) {
@@ -117,8 +117,5 @@ public class AlgoChat {
 	public void borrarMensajesDelGrupo(String nombreChat) {
 		chatsGrupales.borrarMensajes(nombreChat);
 	}
-
-	
-
 
 }

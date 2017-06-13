@@ -144,9 +144,9 @@ public class AlgoChatTests {
         assertEquals(2, algoChat.cantidadTotalMensajesEnviados());
         assertEquals(2, algoChat.cantidadMensajesEnviadosAlGrupo("Tarde"));
 
-        //assertEquals("Yo: bien, yo llevo las medialunas...", algoChat.obtenerConversacionConGrupo("Tarde").get(1));
-        //assertEquals("Eugenio: Me too", algoChat.obtenerConversacionConGrupo("Tarde").get(2));
-        //assertEquals("Marcio: Nos juntamos el lunes?", algoChat.obtenerConversacionConGrupo("Tarde").get(4));
+        assertEquals("Yo: bien, yo llevo las medialunas...", algoChat.obtenerConversacionConGrupo("Tarde").get(1));
+        assertEquals("Eugenio: Me too", algoChat.obtenerConversacionConGrupo("Tarde").get(2));
+        assertEquals("Marcio: Nos juntamos el lunes?", algoChat.obtenerConversacionConGrupo("Tarde").get(4));
 
         algoChat.recibirMensajeDeGrupo("Todos", "Marcio", "Alguien aviso a Pablo?");
         algoChat.enviarMensajeAGrupo("Todos", "Yo no");
@@ -160,9 +160,9 @@ public class AlgoChatTests {
         assertEquals(4, algoChat.cantidadTotalMensajesEnviados());
         assertEquals(2, algoChat.cantidadMensajesEnviadosAlGrupo("Tarde"));
 
-        //assertEquals("Yo: sonamos...", algoChat.obtenerConversacionConGrupo("Todos").get(1));
-        //assertEquals("Tomas: Me neither", algoChat.obtenerConversacionConGrupo("Todos").get(2));
-        //assertEquals("Diego: Yo tampoco", algoChat.obtenerConversacionConGrupo("Todos").get(3));
+        assertEquals("Yo: sonamos...", algoChat.obtenerConversacionConGrupo("Todos").get(1));
+        assertEquals("Tomas: Me neither", algoChat.obtenerConversacionConGrupo("Todos").get(2));
+        assertEquals("Diego: Yo tampoco", algoChat.obtenerConversacionConGrupo("Todos").get(3));
 
     }
 

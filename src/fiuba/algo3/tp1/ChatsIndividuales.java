@@ -6,7 +6,17 @@ import java.util.List;
 public class ChatsIndividuales extends Chats {
 
 	private List<Contacto> contactos;
+	
 
+	private Contacto getContacto(String nombre) {
+		for (Contacto contacto : contactos) {
+			if (contacto.getNombre().equals(nombre)) {
+				return contacto;
+			}
+		}
+		return null;
+	}
+	
 	public ChatsIndividuales() {
 		contactos = new ArrayList<Contacto>();
 	}
@@ -15,75 +25,63 @@ public class ChatsIndividuales extends Chats {
 		return contactos.size();
 	}
 
-	public void agregarContacto(String nombreContacto) {
-		// TODO Auto-generated method stub
-		
+	public void agregarChatConContacto(String nombre) {
+		contactos.add(new Contacto(nombre));
 	}
 	
-	public void recibirMensajeDe(String nombreContacto, String mensaje) {
-		// TODO Auto-generated method stub
-		
+	public void recibirMensajeDe(String nombre, String mensaje) {
+		getContacto(nombre).recibirMensaje(mensaje);
 	}
 
-	public int cantidadMensajesDe(String nombreContacto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int cantidadMensajesRecibidosDe(String nombre) {
+		return getContacto(nombre).cantidadTotalMensajesRecibidos();
 	}
 
-	public int cantidadMensajesEnviadosA(String nombreContacto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int cantidadMensajesEnviadosA(String nombre) {
+		return getContacto(nombre).cantidadTotalMensajesEnviados();
 	}
 
 	@Override
 	public int cantidadDeChats() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int cantidadDeMensajesEnviados() {
-		// TODO Auto-generated method stub
-		return 0;
+		return contactos.size();
 	}
 
 	@Override
 	public int cantidadTotalMensajesRecibidos() {
-		// TODO Auto-generated method stub
-		return 0;
+		int mensajesRecibidos = 0;
+		for (Contacto contacto : contactos) {
+			mensajesRecibidos += contacto.cantidadTotalMensajesRecibidos();
+		}
+		return mensajesRecibidos;
 	}
 
 	@Override
 	public int cantidadTotalMensajesEnviados() {
-		// TODO Auto-generated method stub
-		return 0;
+		int mensajesEnviados = 0;
+		for (Contacto chatConContacto : contactos) {
+			mensajesEnviados += chatConContacto.cantidadTotalMensajesEnviados();
+		}
+		return mensajesEnviados;
 	}
 
 	@Override
-	public boolean existeChat(String nombreChat) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean existeChat(String nombre) {
+		return getContacto(nombre) != null;
 	}
 
 	@Override
-	public List<String> obtenerConversacionCon(String nombreChat) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<String> obtenerConversacionCon(String nombre) {
+		return getContacto(nombre).obtenerConversacion();
 	}
 
 	@Override
-	public void enviarMensajeA(String nombreChat, String mensaje) {
-		// TODO Auto-generated method stub
-		
+	public void enviarMensajeA(String nombre, String mensaje) {
+		getContacto(nombre).enviarMensaje(mensaje);
 	}
 
 	@Override
-	public void borrarMensajes(String nombreChat) {
-		// TODO Auto-generated method stub
-		
+	public void borrarMensajes(String nombre) {
+		getContacto(nombre).borrarMensajes();
 	}
-
-	
-
 	
 }
