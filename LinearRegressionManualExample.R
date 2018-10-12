@@ -56,3 +56,6 @@ varianzaPoblacional=((n-1)/n)*varianzaMuestral
 varianzaPoblacional
 desvTipicaPoblacional=sqrt(varianzaPoblacional)
 desvTipicaPoblacional
+
+
+
