@@ -34,7 +34,6 @@ boxplot(cars$dist,
 
 ###############################################################################################
 # Density plot – Check if the response variable is close to normality
-
 library(e1071)
 par(mfrow=c(1, 2))  # divide graph area in 2 columns
 plot(density(cars$speed), main="Density Plot: Speed", ylab="Frequency", 

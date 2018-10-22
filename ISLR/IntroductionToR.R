@@ -75,12 +75,11 @@ A[-c(1,3),-c(1,3,4)]
 dim(A)
 
 # Loading Data
-
-Auto=read.table("Auto.data")
+library(ISLR)
+head(Auto)
+Auto=read.table("http://www-bcf.usc.edu/~gareth/ISL/Auto.data")
 fix(Auto)
-Auto=read.table("Auto.data",header=T,na.strings="?")
-fix(Auto)
-Auto=read.csv("Auto.csv",header=T,na.strings="?")
+Auto=read.table("http://www-bcf.usc.edu/~gareth/ISL/Auto.data",header=T,na.strings="?")
 fix(Auto)
 dim(Auto)
 Auto[1:4,]
@@ -90,7 +89,7 @@ names(Auto)
 
 # Additional Graphical and Numerical Summaries
 
-plot(cylinders, mpg)
+plot(Auto$cylinders, mpg)
 plot(Auto$cylinders, Auto$mpg)
 attach(Auto)
 plot(cylinders, mpg)
