@@ -9,7 +9,7 @@ str(Carseats)
 
 hist(Sales)
 
-# transformo la variable en factor. Si es mayor a 8 digo que son altas las ventas, 
+# transformo la variable en factor. Si es mayor a 8 digo que son altas las ventas,
 # si no digo que son bajas
 
 High <- ifelse(Sales>8, "Alta", "Baja")
@@ -18,7 +18,7 @@ Carseats2 <- data.frame(Carseats, High)
 str(Carseats2)
 table(High)
 
-# primer árbol con todo el training
+# primer arbol con todo el training
 
 ad.Carseats <- tree(High ~ . -Sales, Carseats2)
 
@@ -29,12 +29,12 @@ text(ad.Carseats)
 
 ad.Carseats
 
-# ahora con un set de validación
+# ahora con un set de validaciï¿½n
 set.seed(1221)
 train <- sample(nrow(Carseats2),0.7*nrow(Carseats2))
 
 
-# no hay que indicarle el dataset de training, sólo el subset de indices "train" para entrenar
+# no hay que indicarle el dataset de training, solo el subset de indices "train" para entrenar
 
 ad.Carseats <- tree(High ~ . -Sales, Carseats2, subset=train)
 
@@ -43,7 +43,7 @@ ad.Carseats
 plot(ad.Carseats)
 text(ad.Carseats)
 
-# set de validación
+# set de validaciï¿½n
 Car_test <- Carseats2[-train,]
 
 
@@ -59,22 +59,22 @@ sum(diag(mc))/nrow(Car_test)
 # vamos a hacer prunning con CV en el set de entremamiento
 cv.carseats <- cv.tree(ad.Carseats, FUN=prune.misclass)
 
-# características
+# caracterï¿½sticas
 cv.carseats
 
 # ploteo
-plot(cv.carseats) 
+plot(cv.carseats)
 
-# veo que el mejor tamaño del árbol se da en 10-13. 
+# veo que el mejor tamaÃ±o del arbol se da en 10-13.
 # Entonces voy a elegir el valor 13
 
-# corro el árbol con este tamaño ideal=11 en toda el set de entrenamiento completo
+# corro el arbol con este tamaï¿½o ideal=11 en toda el set de entrenamiento completo
 
 prune.carseats <- prune.misclass(ad.Carseats, best = 13)
 plot(prune.carseats)
 text(prune.carseats, pretty = 0)
 
-# y ahora predigo con este árbol podado
+# y ahora predigo con este arbol podado
 
 ad.prune.predict <- predict(prune.carseats,Car_test, type="class")
 
@@ -90,12 +90,12 @@ sum(diag(mc))/sum(mc)
 # Impo
 ds <- read.csv("C:/Users/pablomagnaghi/Desktop/Proyectos/r-egide/EGIDE/Churn_Modelling.csv")
 str(ds)
-               
+
 ds = ds[-c(1:3)]
 
 # factorizo
 ds$Exited = factor(ds$Exited, levels = c(0,1))
-               
+
 #  validacion
 train <- sample(nrow(ds), 0.8*nrow(ds))
 
@@ -113,4 +113,3 @@ ds_test <- ds[-train,]
 
 ad.predict <- predict(ds.tree,ds_test, type="class")
 ad.predict.raw <- predict(ds.tree,ds_test, type="vector")
-
