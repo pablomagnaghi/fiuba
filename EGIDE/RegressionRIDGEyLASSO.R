@@ -4,7 +4,7 @@ library(ISLR)
 
 summary(Hitters)
 
-# esta librería no usa el objeto lenguaje de fórmulas para los modelos,
+# esta libreria no usa el objeto lenguaje de formulas para los modelos,
 # asi que generaremos la matriz
 
 Hitters <- na.omit(Hitters)
@@ -19,10 +19,10 @@ y <- Hitters$Salary
 
 fit.ridge <- glmnet(x_t,y, alpha=0)
 
-# el parámetro alpha=0 es RIDGE Y alpha=1 es LASSO
+# el parametro alpha=0 es RIDGE Y alpha=1 es LASSO
 fit.ridge <- glmnet(x_t,y, alpha=0)
 
-# grafiquemos como evolucionan los parámetros con el lambda
+# grafiquemos como evolucionan los parametros con el lambda
 plot(fit.ridge, xvar="lambda", label="TRUE" )
 
 preds <- predict(fit.ridge, x_t)
@@ -37,10 +37,10 @@ formula = as.formula(Salary ~ AtBat + Hits + HmRun + Runs)
 x <- model.matrix(formula , data=Hitters)
 y <- Hitters$Salary
 
-# el parámetro alpha=0 es RIDGE Y alpha=1 es LASSO
+# el parametro alpha=0 es RIDGE Y alpha=1 es LASSO
 fit.ridge_menos <- glmnet(x, y, alpha=0)
 
-# grafiquemos como evolucionan los parámetros con el lambda
+# grafiquemos como evolucionan los parametros con el lambda
 plot(fit.ridge_menos, xvar="lambda",label="TRUE")
 
 
@@ -62,4 +62,3 @@ X_form_n <- model.matrix(formula, data=x_m)
 
 predict(fit.ridge_menos, newx=X_form_n, s=1)
 coef(fit.ridge_menos, s=1)
-
