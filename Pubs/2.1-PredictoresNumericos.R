@@ -150,4 +150,46 @@ dwt(modelo, alternative = "two.sided")
 # prevenir que una variable resulte muy influyente cuando realmente no lo es, se
 # recomienda que la cantidad de observaciones sea entre 10 y 20 veces el número de
 # predictores. En este caso debería haber como mínimo 40 observaciones y se dispone
-# de 50 por lo que es apropiado. 
+# de 50 por lo que es apropiado.
+
+# 5. Identificación de posibles valores atípicos o influyentes
+library(dplyr)
+datos$studentized_residual <- rstudent(modelo)
+ggplot(data = datos, aes(x = predict(modelo), y = abs(studentized_residual))) +
+geom_hline(yintercept = 3, color = "grey", linetype = "dashed") +
+# se identifican en rojo observaciones con residuos estandarizados absolutos > 3
+geom_point(aes(color = ifelse(abs(studentized_residual) > 3, 'red', 'black'))) +
+scale_color_identity() +
+labs(title = "Distribución de los residuos studentized",
+     x = "predicción modelo") +
+theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+which(abs(datos$studentized_residual) > 3)
+
+# No se identifica ninguna observacion atipica.
+
+summary(influence.measures(modelo))
+
+# En la tabla generada se recogen las observaciones que son significativamente influyentes en
+# al menos uno de los predictores (una columna para cada predictor). Las tres ultimas columnas
+# son 3 medidas distintas para cuantificar la influencia. A modo de guia se pueden considerar
+# excesivamente influyentes aquellas observaciones para las que:
+
+# Leverages (hat): Se consideran observaciones influyentes aquellas cuyos valores hat
+# superen 2.5((p+1)/n), siendo p el numero de predictores y n el numero de observaciones.
+# Distancia Cook (cook.d): Se consideran influyentes valores superiores a 1.
+# La visualizacion grafica de las influencias se obtiene del siguiente modo:
+influencePlot(modelo)
+
+# Los analisis muestran varias observaciones influyentes (posición 5 y 11) que exceden los limites
+# de preocupacion para los valores de Leverages o Distancia Cook. Estudios mas
+# exhaustivos consistirian en rehacer el modelo sin las observaciones y ver el impacto.
+
+# 6. Conclusion
+# El modelo lineal multiple
+# Esperanza de vida=5.014e−05habitantes−3.001e−01asesinatos+4.658e−02universitarios−5.943e−03heladas
+
+# es capaz de explicar el 73.6% de la variabilidad observada en la esperanza de vida (R2: 0.736,
+# R2-Adjusted: 0.7126). El test F muestra que es significativo (p-value: 1.696e-12).
+# Se satisfacen todas las condiciones para este tipo de regresion multiple.
+# Dos observaciones (posición 5 y 11) podrian estar influyendo de forma notable en el modelo.
