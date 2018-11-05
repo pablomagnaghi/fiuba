@@ -19,3 +19,18 @@ cv_error$delta
 # muestran la misma tendencia que LOOCV. Se obtiene una mejora importante
 # empleando una función cuadratica o cubica en comparacion al modelo lineal.
 # Para polinomios de grado > 3 la mejora es mínima.
+cv_MSE_k10 <- rep(NA,10)
+
+for (i in 1:10) {
+  modelo <- glm(mpg ~ poly(horsepower, i), data = Auto)
+  set.seed(17)
+  cv_MSE_k10[i] <- cv.glm(data = Auto, glmfit = modelo, K = 10)$delta[1]
+}
+ggplot(data = data.frame(polinomio = 1:10, cv_MSE = cv_MSE_k10),
+       aes(x = polinomio, y = cv_MSE)) +
+geom_point(colour = c("firebrick3")) +
+geom_path() +
+scale_x_continuous(breaks = c(0:10)) +
+theme_bw() +
+labs(title  =  'Test Error ~ Grado del polinomio') +
+theme(plot.title = element_text(hjust = 0.5, face = 'bold'))
