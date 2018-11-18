@@ -78,7 +78,7 @@ theme_bw() +
 labs(title  =  'mpg ~ horsepower') +
 theme(plot.title = element_text(hjust = 0.5, face = 'bold'))
 
-# A continuaciOn se ajustan 10 modelos distintos empleando polinomios de grado 1
+# A continuacion se ajustan 10 modelos distintos empleando polinomios de grado 1
 # hasta 10 y se registra el cv-MSE para cada uno. La función poly() permite
 # determinar el grado de polinomio empleado.
 
@@ -111,3 +111,4 @@ ggplot(data = Auto, aes(x = horsepower, y = mpg)) + geom_point(colour = c("fireb
     stat_smooth(method = "lm", formula = y ~ poly(x, 2), color = "black") +
     theme_bw() + labs(title = "mpg ~ horsepower^2") + theme(plot.title = element_text(hjust = 0.5,
     face = "bold"))
+

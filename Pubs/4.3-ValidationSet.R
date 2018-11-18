@@ -29,7 +29,7 @@ mejores_modelos <- regsubsets(Salary~., data = datos[train,], nvmax = 19,
 # estimar el validation test error empleando las observaciones que se han
 # excluido del training y que se han designado como test.
 
-Se genera un vector que almacenará el test-error de cada modelo
+# Se genera un vector que almacenará el test-error de cada modelo
 validation_error <- rep(NA, 19)
 # No existe una función predefinida para obtener el validation-test-error, se
 # tiene que programar. Para facilitar el proceso es conveniente trabajar con

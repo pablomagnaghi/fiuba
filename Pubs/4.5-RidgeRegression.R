@@ -16,6 +16,8 @@ datos <- na.omit(Hitters)
 x <- model.matrix(Salary~., data = datos)[, -1]
 head(x)
 
+y <- datos$Salary
+
 # El resultado de un ajuste por ridge regression depende del tunning parameter λ que
 # determina el grado de penalizacion. Mediante el argumento lambda se puede especificar
 # un valor concreto obteniendo un unico modelo. Si no se tiene conocimiento previo
@@ -70,3 +72,4 @@ cv_error_ridge$lambda.1se
 # Se muestra el valor de los coeficientes para el valor de lambda optimo
 modelo_final_ridge <- glmnet(x = x, y = y, alpha = 0, lambda = 3535.367)
 coef(modelo_final_ridge)
+

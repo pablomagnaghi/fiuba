@@ -40,3 +40,4 @@ labs(title  =  'Test Error ~ Grado del polinomio') +
 theme(plot.title = element_text(hjust = 0.5, face = 'bold'))
 
 # Los resultados de la validacion indican que polinomios superiores a grado 2 o 3 no aportan una mejora sustancial.
+

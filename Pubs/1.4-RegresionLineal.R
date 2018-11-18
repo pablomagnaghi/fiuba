@@ -169,7 +169,7 @@ bptest(modelo_lineal)
 # que haga sospechar falta de homocedasticidad.
 
 # Cuando se trabaja con intervalos de tiempo, es muy importante comprobar que no
-# existe aoutocorrelacion de los residuos, es decir que son independientes.
+# existe autocorrelacion de los residuos, es decir que son independientes.
 # Esto puede hacerse detectando visualmente patrones en la distribución de
 # los residuos cuando se ordenan segúu se han registrado o con el test de
 # Durbin-Watson dwt() del paquete Car.

@@ -2,7 +2,6 @@
 # cada uno de ellos. El objetivo de estudio es intentar crear un modelo que permita
 # filtrar que emails son “spam” y cuáles no, en funcion de determinadas características.
 # Ejemplo extraido del libro OpenIntro Statistics.
-
 library(openintro)
 data(email)
 str(email)

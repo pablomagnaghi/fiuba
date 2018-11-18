@@ -151,3 +151,4 @@ predicciones <- predict(object = modelo_ridge, newx = x_Hitters_2, s = cv_error_
 
 test_MSE_lasso <- mean((predicciones - Hitters_2$Salary)^2)
 test_MSE_lasso
+

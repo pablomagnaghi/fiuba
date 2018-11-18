@@ -20,7 +20,7 @@ head(datos, 4)
 # dispersion multiple (pairwise scatterplot) para intuir si existe relacion
 # lineal o monotonica con la variable respuesta. Si no la hay, no es adecuado
 # emplear un modelo de regresión lineal. Además, se estudia la relación entre
-# variables para detectar posible colinialidad. Para las variables de tipo
+# variables para detectar posible colinealidad. Para las variables de tipo
 # categorico se genera un boxplot con sus niveles para intuir su influencia
 # en la variable dependiente.
 pairs(datos)

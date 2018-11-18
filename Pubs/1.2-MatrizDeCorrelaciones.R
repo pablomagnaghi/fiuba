@@ -13,10 +13,10 @@ pairs(x = datos, lower.panel = NULL)
 cor(x = datos, method = "pearson")
 # install.packages('psych')'
 require(psych)
-dev.new()
+# dev.new()
 multi.hist(x = datos, dcol = c("blue", "red"), dlty = c("dotted", "solid"),
            main = "")
-dev.off()
+# dev.off()
 
 # La funcion corrplot() del paquete corrplot recibe como argumento la
 # matriz de correlaciones generada por la función cor() y genera
@@ -40,3 +40,4 @@ pairs.panels(x = datos, ellipses = FALSE, lm = TRUE, method = "pearson")
 require(GGally)
 ggpairs(iris, lower = list(continuous = "smooth"),
         diag = list(continuous = "bar"), axisLabels = "none")
+

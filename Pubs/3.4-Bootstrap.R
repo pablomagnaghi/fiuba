@@ -53,3 +53,4 @@ summary(lm(mpg~horsepower,data = Auto))$coef
 
 # El mismo resultado se puede obtener empleando la funcion boot().
 boot(data = Auto, statistic = fun_coeficientes, R = 9999)
+

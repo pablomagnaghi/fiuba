@@ -34,3 +34,4 @@ scale_x_continuous(breaks = c(0:10)) +
 theme_bw() +
 labs(title  =  'Test Error ~ Grado del polinomio') +
 theme(plot.title = element_text(hjust = 0.5, face = 'bold'))
+

@@ -208,4 +208,5 @@ mosaic(matriz_confusion, shade = T, colorize = T,
 # acorde al Likelihood ratio (p-value = 8.717591e-14). El p-value del predictor
 # matematicas es significativo (p-value = 1.03e-09).
 
-logit(matricula)=−9.793942+0.1563404∗nota matematicas
+# logit(matricula)=−9.793942+0.1563404∗nota matematicas
+
