@@ -21,6 +21,10 @@ library(caret)
 library(randomForest)
 library(ggpubr)
 library(rms)
+library(ROCR)
+library(pROC)
+library(e1071)
+library(C50)
 #######################################################################################################
 
 ################################### Preparar el entorno de trabajo ####################################
@@ -89,21 +93,16 @@ sum(is.na(mktg_bank_data.imp))
 #######################################################################################################
 mktg_bank_data.clean <- mktg_bank_data.imp
 
-# Identificar características altamente correlacionadas entre variables numericas 
-
-set.seed(149)
-str(mktg_bank_data.clean)
-
+# Identificar características altamente correlacionadas entre variables numericas
 correlation_matrix <- cor(mktg_bank_data.clean[,c(1, 11, 12, 13, 14, 16:20)])
 correlation_matrix
 corrplot(correlation_matrix, method="number", type="upper")
 
-# euribor3m and nr.employed so nr.employed. is removed.
-# euribor3m and emp.var.rate so emp.var.rate is removed.
+# euribor3m y nr.employed estan muy correlacionados, entonces nr.employed. es removido
+# euribor3m y emp.var.rate estan muy correlacionados emp.var.rate es removido
 mktg_bank_data.clean[, c("nr.employed", "emp.var.rate")] <- NULL
 
-
-# Identificar características altamente correlacionadas entre variables categoricas 
+# Identificar características altamente correlacionadas entre variables categoricas
 vars <- c("job", "marital", "education", "default", "housing", "loan", "contact", "month",
           "day_of_week", "poutcome")
 data_wit_cat_vars <- subset(mktg_bank_data.clean, select = vars)
@@ -112,38 +111,25 @@ plot(cat_corr_matrix)
 
 # no hay correlacion significativa
 
+# Eliminar la variable "duration" para obtener un modelo predictivo realista
+mktg_bank_data.clean$duration <- NULL
+
 #######################################################################################################
 
 # Conversion de variables
 
 # age
-mktg_bank_data.clean$age <- cut(mktg_bank_data.clean$age, c(0,20,35,65,100),
+mktg_bank_data.clean$age <- cut(mktg_bank_data.clean$age, c(0,25,40,65,100),
                                 labels = c("Teenagers","Young Adults", "Adults", "Retired"))
 table(mktg_bank_data.clean$age)
 
 # marital
-mktg_bank_data.clean$marital = factor(ifelse(mktg_bank_data.clean$marital == 'married', "married", "unmarried"))
+levels(mktg_bank_data.clean$marital)[c(1,3)] <- "unmarried"
 table(mktg_bank_data.clean$marital)
 
 # education
-for(i in 1 : nrow(mktg_bank_data.clean)){
-  if (mktg_bank_data.clean$education[i] == 'basic.4y' |
-      mktg_bank_data.clean$education[i] == 'basic.6y' |
-      mktg_bank_data.clean$education[i] == 'basic.9y') {
-    mktg_bank_data.clean$new_education[i] = 'primary'
-  } else if (mktg_bank_data.clean$education[i] == 'high.school') {
-    mktg_bank_data.clean$new_education[i] = 'secondary'
-  } else if (mktg_bank_data.clean$education[i] == 'professional.course' |
-             mktg_bank_data.clean$education[i] == 'university.degree') {
-    mktg_bank_data.clean$new_education[i] = 'tertiary'
-  } else {
-    mktg_bank_data.clean$new_education[i] = 'illiterate'
-  }
-}
-table(mktg_bank_data.clean$new_education)
-mktg_bank_data.clean$education <- as.factor(mktg_bank_data.clean$new_education)
+levels(mktg_bank_data.clean$education)[c(1:4)] <- "lower.degree"
 table(mktg_bank_data.clean$education)
-mktg_bank_data.clean$new_education <- NULL
 
 # pdays
 # días que han pasado desde la ultima vez que se contactó al cliente por una campaña anterior
@@ -155,17 +141,51 @@ mktg_bank_data.clean$pdays <- cut(x = mktg_bank_data.clean$pdays,
                                              "Week 3","Week 4","Never"))
 table(mktg_bank_data.clean$pdays)
 
+# previous
+mktg_bank_data.clean$previous = as.factor(mktg_bank_data.clean$previous)
+levels(mktg_bank_data.clean$previous)[c(5:8)] <- "More than 3 times"
+levels(mktg_bank_data.clean$previous)[c(2:4)] <- "Less than 4 times"
+levels(mktg_bank_data.clean$previous)[c(1)] <- "Never contacted"
+table(mktg_bank_data.clean$previous)
+
 # convertir int a numeric
 mktg_bank_data.clean$campaign <- as.numeric(mktg_bank_data.clean$campaign)
-mktg_bank_data.clean$previous <- as.numeric(mktg_bank_data.clean$previous)
-
-# Eliminar la variable "duration" para obtener un modelo predictivo realista
-mktg_bank_data.clean$duration <- NULL
 
 colSums(is.na(mktg_bank_data.clean))
 dim(mktg_bank_data.clean)
 str(mktg_bank_data.clean)
 sum(is.na(mktg_bank_data.clean))
 
+# remover valores aislados
+remove_outliers <- function(x, na.rm = TRUE, ...) {
+  qnt <- quantile(x, probs=c(.25, .75), na.rm = na.rm, ...)
+  H <- 1.5 * IQR(x, na.rm = na.rm)
+  y <- x
+  y[x < (qnt[1] - H)] <- NA
+  y[x > (qnt[2] + H)] <- NA
+  y
+}
+
+mktg_bank_data.clean$campaign <- remove_outliers(mktg_bank_data.clean$campaign)
+mktg_bank_data.clean$cons.price.idx <- remove_outliers(mktg_bank_data.clean$cons.price.idx)
+mktg_bank_data.clean$cons.conf.idx <- remove_outliers(mktg_bank_data.clean$cons.conf.idx)
+mktg_bank_data.clean$euribor3m <- remove_outliers(mktg_bank_data.clean$euribor3m)
+mktg_bank_data.clean <- na.omit(mktg_bank_data.clean)
+
+dim(mktg_bank_data.clean)
+sum(is.na(mktg_bank_data.clean$age))
+mktg_bank_data.clean <- na.omit(mktg_bank_data.clean)
+dim(mktg_bank_data.clean)
+
 #######################################################################################################
 
+########################## Generacion de conjunto de prueba y entrenamiento ###########################
+
+#######################################################################################################
+
+idx <- createDataPartition(mktg_bank_data.clean$y, p = 0.8,list = FALSE)
+train <- mktg_bank_data.clean[idx,]
+test <- mktg_bank_data.clean[-idx,]
+
+table(train$y)
+table(test$y)

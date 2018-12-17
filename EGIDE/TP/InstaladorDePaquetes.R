@@ -12,6 +12,7 @@ installPackagesIfItIsNeeded <- function(package_name) {
 }
 
 ###### Paquetes
+installPackagesIfItIsNeeded("mice")
 installPackagesIfItIsNeeded("magrittr")
 installPackagesIfItIsNeeded("pander")
 installPackagesIfItIsNeeded("dplyr")
@@ -19,5 +20,12 @@ installPackagesIfItIsNeeded("ggplot2")
 installPackagesIfItIsNeeded("cowplot")
 installPackagesIfItIsNeeded("corrplot")
 installPackagesIfItIsNeeded("VIM")
-installPackagesIfItIsNeeded("mice")
 installPackagesIfItIsNeeded("gdata")
+installPackagesIfItIsNeeded("GoodmanKruskal")
+installPackagesIfItIsNeeded("randomForest")
+installPackagesIfItIsNeeded("ggpubr")
+installPackagesIfItIsNeeded("rms")
+installPackagesIfItIsNeeded("ROCR")
+installPackagesIfItIsNeeded("pROC")
+installPackagesIfItIsNeeded("e1071")
+installPackagesIfItIsNeeded("C50")

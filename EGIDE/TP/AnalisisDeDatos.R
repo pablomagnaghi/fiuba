@@ -101,11 +101,6 @@ p1 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Edad [age]")
-p1
-
-b1 <- ggplot(mktg_bank_data, aes(factor(y), age)) +
-  geom_boxplot(aes(fill = factor(y)))
-b1
 
 # Tipo de trabajo vs Toma de deposito
 p2 <- ggplot() +
@@ -120,7 +115,6 @@ p2 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Tipo de trabajo [job]")
-p2
 
 # Estado civil vs Toma de deposito
 p3 <- ggplot() +
@@ -135,7 +129,6 @@ p3 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Estado civi [marital]")
-p3
 
 # Nivel de educacion vs Toma de deposito
 p4 <- ggplot() +
@@ -150,7 +143,6 @@ p4 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Nivel de educacion [education]")
-p4
 
 # Credito incumplido vs Toma de deposito
 p5 <- ggplot() +
@@ -165,7 +157,6 @@ p5 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Credito incumplido [default]")
-p5
 
 # Prestamo para vivienda vs Toma de deposito
 p6 <- ggplot() +
@@ -180,7 +171,6 @@ p6 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Prestamo para vivienda [housing]")
-p6
 
 # Prestamo personal vs Toma de deposito
 p7 <- ggplot() +
@@ -195,7 +185,6 @@ p7 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Prestamo personal [loan]")
-p7
 
 # Tipo de comunicación de contacto vs Toma de deposito
 p8 <- ggplot() +
@@ -210,7 +199,6 @@ p8 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Tipo de comunicación de contacto [contact]")
-p8
 
 # Mes del ultimo contacto vs Toma de deposito
 p9 <- ggplot() +
@@ -225,7 +213,6 @@ p9 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Mes del ultimo contacto [month]")
-p9
 
 # Dia de la semana del ultimo contacto vs Toma de deposito
 p10 <- ggplot() +
@@ -240,7 +227,6 @@ p10 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Dia de la semana del ultimo contacto [day_of_week]")
-p10
 
 # Duracion del ultimo contacto vs Toma de deposito
 p11 <- ggplot() +
@@ -250,7 +236,6 @@ p11 <- ggplot() +
   ggtitle("Duracion del ultimo contacto vs Toma de deposito") +
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Duracion del ultimo contacto [duration]")
-p11
 
 # ln_duration <- log(train$duration)
 ln_duration <- log(1 + (mktg_bank_data$duration))
@@ -261,10 +246,9 @@ p11Log <- ggplot() +
   ggtitle("Duracion del ultimo contacto vs Toma de deposito") +
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Duracion del ultimo contacto [ln(duration)]")
-p11Log
 
 # Numero de contactos realizados vs Toma de deposito
-b12 <- ggplot() +
+p12 <- ggplot() +
   geom_bar(aes(y = (..count..), x = campaign, fill = y), data = mktg_bank_data, stat="count") +
   labs(fill="Toma de deposito") +
   scale_y_continuous(name = "Cantidad")+
@@ -276,7 +260,9 @@ b12 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Numero de contactos realizados [campaign]")
-b12
+
+b12 <- ggplot(mktg_bank_data, aes(factor(y), campaign)) +
+  geom_boxplot(aes(fill = factor(y)))
 
 # Numero de días que pasaron desde la campaña anterior vs Toma de deposito
 p13 <- ggplot() +
@@ -291,7 +277,6 @@ p13 <- ggplot() +
                        hjust = 1,
                        vjust = 1)) +
   xlab("Numero de días que pasaron desde la campaña anterior [pdays]")
-p13
 
 # Numero de contactos realizados a este cliente vs Toma de deposito
 p14 <- ggplot() +
@@ -306,7 +291,6 @@ p14 <- ggplot() +
                      hjust = 1,
                      vjust = 1)) +
   xlab("Numero de contactos realizados a este cliente [previous]")
-p14
 
 # Resultado de la campaña de marketing anterior vs Toma de deposito
 p15 <- ggplot() +
@@ -316,7 +300,6 @@ p15 <- ggplot() +
   ggtitle("Resultado de la campaña de marketing anterior vs Toma de deposito") +
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Resultado de la campaña de marketing anterior [poutcome]")
-p15
 
 # Tasa de variación del empleo vs Toma de deposito
 p16 <- ggplot() +
@@ -326,11 +309,9 @@ p16 <- ggplot() +
   ggtitle("Tasa de variación del empleo vs Toma de deposito") +
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Tasa de variación del empleo [emp.var.rate]")
-p16
 
 b16 <- ggplot(mktg_bank_data, aes(factor(y), emp.var.rate)) +
   geom_boxplot(aes(fill = factor(y)))
-b16
 
 # Indice de precios al consumidor vs Toma de deposito
 p17 <- ggplot() +
@@ -340,11 +321,9 @@ p17 <- ggplot() +
   ggtitle("Indice de precios al consumidor vs Toma de deposito") +
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Indice de precios al consumidor [cons.price.idx]")
-p17
 
 b17 <- ggplot(mktg_bank_data, aes(factor(y), cons.price.idx)) +
   geom_boxplot(aes(fill = factor(y)))
-b17
 
 # Indice de confianza del consumidor vs Toma de deposito
 p18 <- ggplot() +
@@ -354,11 +333,9 @@ p18 <- ggplot() +
   ggtitle("Indice de confianza del consumidor vs Toma de deposito") +
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Indice de confianza del consumidor [cons.conf.idx]")
-p18
 
 b18 <- ggplot(mktg_bank_data, aes(factor(y), cons.conf.idx)) +
   geom_boxplot(aes(fill = factor(y)))
-b18
 
 # Tasa de interes interbancario vs Toma de deposito
 p19 <- ggplot() +
@@ -368,25 +345,21 @@ p19 <- ggplot() +
   ggtitle("Tasa de interes interbancario vs Toma de deposito") +
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Tasa de interes interbancario [euribor3m]")
-p19
 
 b19 <- ggplot(mktg_bank_data, aes(factor(y), euribor3m)) +
   geom_boxplot(aes(fill = factor(y)))
-b19
 
 # Promedio trimestral del numero de ciudadanos activos vs Toma de deposito
 p20 <- ggplot() +
   geom_histogram(aes( x = nr.employed, fill = y), data = mktg_bank_data, binwidth =100) +
   labs(fill="Toma de deposito") +
-  scale_y_continuous(name = "Count") +
+  scale_y_continuous(name = "Cantidad") +
   ggtitle("Promedio trimestral del numero de ciudadanos activos vs Toma de depósito") +
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Promedio trimestral del numero de ciudadanos activos [nr.employed]")
-p20
 
 b20 <- ggplot(mktg_bank_data, aes(factor(y), nr.employed)) +
   geom_boxplot(aes(fill = factor(y)))
-b20
 
 # Toma de deposito (objetivo)
 p21 <- ggplot(mktg_bank_data %>% group_by(y) %>% summarise(Count = n())) +
@@ -396,6 +369,25 @@ p21 <- ggplot(mktg_bank_data %>% group_by(y) %>% summarise(Count = n())) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   ggtitle("Toma de deposito") +
   xlab("")
-p21
 
 #######################################################################################################
+
+combine_plot <- function(p1, p2, p3) {
+  third_row <- plot_grid(p3, nrow = 1)
+  second_row <- plot_grid(p2, nrow = 1)
+  first_row <- plot_grid(p1, nrow = 1)
+  combine_plot <- plot_grid(first_row, second_row, third_row, ncol = 1)
+  combine_plot
+}
+combine_plot(p1, p2, p3)
+combine_plot(p4, p5, p6)
+combine_plot(p7, p8, p9)
+combine_plot(p10, p11, p12)
+combine_plot(p13, p14, p15)
+combine_plot(p16, p17, p18)
+combine_plot(p19, p20, p21)
+
+combine_plot(b12, b16, b17)
+combine_plot(b18, b19, b20)
+
+
