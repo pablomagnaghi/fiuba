@@ -1,0 +1,68 @@
+.active a{
+	color : #0099FF;
+	font-weight: bold;
+}
+
+.quickMenu {
+	float: right;
+    text-align: right;
+}
+
+.unread span {
+	font-weight: bold !important;
+}
+
+.li_clickeable, #li_nueva_carpeta {
+	border-bottom: 1px solid #D6D9E0;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: relative;
+    list-style: none outside none;
+}
+
+.center_div_respuesta {
+	position: absolute;
+    height: 180px;
+    width: 350px;
+    margin: -100px 0 0 -200px;
+    top: 50%;
+    left: 50%;
+    display : block;
+    background-color: #AAAAAA
+}
+
+.center_div_carpeta {
+	position:fixed;
+    top: 50%;
+    left: 50%;
+    height: 330px;
+    width: 330px;
+    margin-top: -165px; /*set to a negative number 1/2 of your height*/
+    margin-left: -165px; /*set to a negative number 1/2 of your width*/
+    z-index: 2
+}
+
+.ui-state-active {
+	background-color: #CCCCCC !important;
+	border-color: #357EBD !important
+}
+
+.ui-state-focus {
+	color: #357EBD !important;
+}
+
+.ui-state-active a{
+	color: #0099FF !important
+}
+    
+.ui-menu .ui-menu-item a{
+    background:#FFFFFF;
+    font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+    font-size: 13px;
+    line-height: 1.42857;;
+}
+
+.input input{
+	width: 280px;
+}
+
