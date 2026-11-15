@@ -34,7 +34,7 @@ with its full commit history; the code is kept as written at the time.
 | [`7510-pacman`](7510-pacman) | 75.10 Técnicas de Diseño | Java | Pac-Man engine with pluggable ghost behaviors (seeker, lazy, dumb), game state, timers and input from command files; focused on design patterns and tests |
 | [`7542-mistral`](7542-mistral) | 75.42 Taller de Programación I | C++ | *Mistral*: a desktop editor for report templates (lines, rectangles, lists, calculated columns) that applies a template to a data file and generates PostScript |
 | [`7552-tp`](7552-tp) | 75.52 Taller de Programación II | C++ | A desktop modeling tool for entity–relationship diagrams: entities, attributes, relationships, hierarchies and identifiers, with wizards, a tree view and diagram export |
-| [`red-social-educativa`](red-social-educativa) | — | Groovy (Grails) | An educational social network web app: administrators, mentors and learners, courses, activities and forums, with services and Spock specs |
+| [`red-social-educativa`](red-social-educativa) | 75.99 Trabajo Profesional | Groovy (Grails) | An educational social network web app: administrators, mentors and learners, courses, activities and forums, with services and Spock specs |
 
 ## Electives: diagnosis, robotics and manufacturing
 
