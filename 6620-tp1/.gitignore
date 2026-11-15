@@ -1,0 +1,15 @@
+# Build output
+*.o
+*.out
+*.exe
+*.d
+
+# Editor backups
+*~
+.DS_Store
+
+# LaTeX build files
+*.aux
+*.log
+*.toc
+*.synctex.gz
