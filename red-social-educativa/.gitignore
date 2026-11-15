@@ -1,0 +1,9 @@
+# Grails build output
+target/
+.gradle/
+*.class
+*.log
+
+# Editor backups
+*~
+.DS_Store
