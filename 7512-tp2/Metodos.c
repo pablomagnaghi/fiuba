@@ -30,7 +30,7 @@ int EulerExplicito (float Po, float Vo, float area_lago, float Qm, float delta_Q
 
 	fprintf (archivo, "Paso = %.2f\n", delta_t);
 
-	fprintf (archivo, "Año: %i\n", Anio);
+	fprintf (archivo, "AÃ±o: %i\n", Anio);
 
 	fprintf (archivo, "U%i = %.6f  T = %.1f  MES = %.1f\n", i, Un, t, mes);
 
@@ -43,7 +43,7 @@ int EulerExplicito (float Po, float Vo, float area_lago, float Qm, float delta_Q
 		{
 			mes = 1;
 			Anio++;
-			fprintf (archivo, "Año: %i\n", Anio);
+			fprintf (archivo, "AÃ±o: %i\n", Anio);
 		}
 		devolverParametrosFinales (Un, Vo, area_lago, Qm, delta_Q, Pe1, Pe2, K, Ld1,
 		Ld2, A, Do, Pc, &w , &Qe, &Qs, &V, &D, &Ld, &Pe, &H, mes, t);
@@ -83,7 +83,7 @@ int EulerImplicito (float Po, float Vo, float area_lago, float Qm, float delta_Q
 
 	fprintf (archivo, "Paso = %.2f\n", delta_t);
 
-	fprintf (archivo, "Año: %i\n", Anio);
+	fprintf (archivo, "AÃ±o: %i\n", Anio);
 
 	fprintf (archivo, "U%i = %.6f  T = %.1f  MES = %.1f\n", i, Un, t, mes);
 
@@ -96,7 +96,7 @@ int EulerImplicito (float Po, float Vo, float area_lago, float Qm, float delta_Q
 		{
 			mes = 1;
 			Anio++;
-			fprintf (archivo, "Año: %i\n", Anio);
+			fprintf (archivo, "AÃ±o: %i\n", Anio);
 		}
 
 		j = 0;
@@ -143,7 +143,7 @@ int RungeKuttaOrden2 (float Po, float Vo, float area_lago, float Qm, float delta
 
 	fprintf (archivo, "Paso = %.2f\n", delta_t);
 
-	fprintf (archivo, "Año: %i\n", Anio);
+	fprintf (archivo, "AÃ±o: %i\n", Anio);
 
 	fprintf (archivo, "U%i = %.6f  T = %.1f  MES = %.1f\n", i, Un, t, mes);
 
@@ -156,7 +156,7 @@ int RungeKuttaOrden2 (float Po, float Vo, float area_lago, float Qm, float delta
 		{
 			mes = 1;
 			Anio++;
-			fprintf (archivo, "Año: %i\n", Anio);
+			fprintf (archivo, "AÃ±o: %i\n", Anio);
 		}
 
 	devolverParametrosFinales (Un, Vo, area_lago, Qm, delta_Q, Pe1, Pe2, K, Ld1,
