@@ -1,7 +1,7 @@
 # FIUBA
 
 Coursework from my Software Engineering degree at the **Facultad de Ingeniería, Universidad de Buenos Aires
-(FIUBA)**; the commit history spans 2011–2014. Most projects were team assignments. Each folder is one of my original repositories, imported
+(FIUBA)**; the commit history spans 2011–2017. Most projects were team assignments. Each folder is one of my original repositories, imported
 with its full commit history; the code is kept as written at the time.
 
 ## Algorithms and data structures
@@ -14,6 +14,8 @@ with its full commit history; the code is kept as written at the time.
 | [`7541-tp3`](7541-tp3) | 75.41 Algoritmos y Programación II | C | Phone billing system: subscribers and call details stored in a binary search tree, with commands to generate per-user invoices sorted by date or number |
 | [`7507-tp0`](7507-tp0) | 75.07 Algoritmos y Programación III | Java | Warm-up exercise: a numeric sequence and its elements |
 | [`7507-los-pooglins`](7507-los-pooglins) | 75.07 Algoritmos y Programación III | Java | *Los Pooglins*: a puzzle game in the style of guiding creatures to an exit, with block types (fire, ice, rock, black hole, tunnels), abilities, level files and unit tests; object-oriented design |
+| [`7507-java-test`](7507-java-test) | 75.07 Algoritmos y Programación III | Java | *AlgoChat*: the model of a messaging app (users, contacts, one-to-one and group chats, sent and received messages), built test-first with JUnit |
+| [`7507-dragon-ball`](7507-dragon-ball) | 75.07 Algoritmos y Programación III | Java (JavaFX) | A two-player turn-based strategy game on a board with *Dragon Ball*-themed characters: moves, attacks, special attacks and transformations; MVC with a JavaFX UI, JUnit tests and an Ant + Ivy build |
 | [`7506-ppmc`](7506-ppmc) | 75.06 Organización de Datos | C++ | File compressor and decompressor using **PPMC** (prediction by partial matching) with arithmetic coding, plus compression-ratio, time and memory benchmarks |
 
 ## Systems and low level
@@ -49,5 +51,5 @@ with its full commit history; the code is kept as written at the time.
 
 ---
 
-All projects are from 2011–2014 and are kept for reference. Current work is on my
+All projects are from 2011–2017 and are kept for reference. Current work is on my
 [GitHub profile](https://github.com/pablomagnaghi) and [portfolio](https://pablomagnaghi.com).
