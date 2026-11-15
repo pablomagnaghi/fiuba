@@ -1,1 +1,11 @@
 /bin/
+
+# Ant build output and Ivy-downloaded dependencies
+/build/
+/libs/
+*.class
+cobertura.ser
+
+# Editor backups
+*~
+.DS_Store
