@@ -164,7 +164,7 @@ int TF_ObtenerMes(TFecha fecha, char cadenaMes[3]){
 /* 
  * PRE: fecha creada
  * 
- * POS: Se carga el año en cadenaAnio
+ * POS: Se carga el aÃ±o en cadenaAnio
  * 		Devuelve 0 si no hubo ningun error y 1 en caso contrario
  */
 int TF_ObtenerAnio(TFecha fecha, char cadenaAnio[3]){

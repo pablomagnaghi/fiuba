@@ -3,10 +3,10 @@
 /* 
  * PRE:  -
  * 
- * POS: Se crea detalleTelefonico a partir del archivo de configuración dado,
- * 		se cargan los árboles y la estructura de gastos generales.
+ * POS: Se crea detalleTelefonico a partir del archivo de configuraciÃ³n dado,
+ * 		se cargan los Ã¡rboles y la estructura de gastos generales.
  * 		Se retorna 0 en caso de que no hayan habido errores y 1 en caso contrario.
- * 		Los errores que pudieran ocurrir se imprimirán por stderr.
+ * 		Los errores que pudieran ocurrir se imprimirÃ¡n por stderr.
  */
 int TDT_Crear(TDT* detalleTelefonico, FILE* configFile){
 	if (configFile){
@@ -24,10 +24,10 @@ int TDT_Crear(TDT* detalleTelefonico, FILE* configFile){
 		}
 		// cargo los gastos generales
 		crearGastosGenerales(detalleTelefonico, archivoDetalle);
-		// cargo el árbol de detalle
+		// cargo el Ã¡rbol de detalle
 		crearArbolDetalle(detalleTelefonico, archivoDetalle);
 		
-		// abro los archivos de teléfonos de usuarios y los cargo en una lista
+		// abro los archivos de telÃ©fonos de usuarios y los cargo en una lista
 		char palabrasSeparadas[64][64];
 		int cantPalabras;
 		
@@ -45,9 +45,9 @@ int TDT_Crear(TDT* detalleTelefonico, FILE* configFile){
 			}
 			ls_Insertar(&detalleTelefonico->listaUsuarios, LS_PRIMERO, &archivoUsuario);	
 		}
-		// en base a la lista de archivos de teléfonos de usuarios cargo el árbol de teléfonos de usuarios
+		// en base a la lista de archivos de telÃ©fonos de usuarios cargo el Ã¡rbol de telÃ©fonos de usuarios
 		crearArbolTelefonosUsuarios(detalleTelefonico, detalleTelefonico->listaUsuarios);
-		// vacío la lista de teléfonos de usuarios
+		// vacÃ­o la lista de telÃ©fonos de usuarios
 		
 		return 0;
 	}
@@ -62,10 +62,10 @@ int TDT_Crear(TDT* detalleTelefonico, FILE* configFile){
  * 		numeroTelefonico creado.
  * 		listaNombres creada.
  * 		
- * POS:	Los nombres de los usuarios que tengan asociado el número telefónico dado serán cargados en listaNombres.
- * 		La cantidad de nombres de usuarios que tienen asociado dicho número telefónico será cargada en cantUsuarios.
+ * POS:	Los nombres de los usuarios que tengan asociado el nÃºmero telefÃ³nico dado serÃ¡n cargados en listaNombres.
+ * 		La cantidad de nombres de usuarios que tienen asociado dicho nÃºmero telefÃ³nico serÃ¡ cargada en cantUsuarios.
  * 		Se retorna 0 en caso de que no hayan habido errores y 1 en caso contrario.
- * 		Los errores que pudieran ocurrir se imprimirán por stderr.
+ * 		Los errores que pudieran ocurrir se imprimirÃ¡n por stderr.
  */
 int TDT_ObtenerUsuariosTelefono(TDT detalleTelefonico, TNumeroTelefonico numeroTelefonico, 
 								TListaSimple* listaNombres, int* cantUsuarios){
@@ -80,7 +80,7 @@ int TDT_ObtenerUsuariosTelefono(TDT detalleTelefonico, TNumeroTelefonico numeroT
 		return 0;
 	}
 	else{
-		fprintf(stderr, "Error: No se encontró el arbol de usuarios\n");
+		fprintf(stderr, "Error: No se encontrÃ³ el arbol de usuarios\n");
 		return 1;
 	}
 }
@@ -93,7 +93,7 @@ void TDT_ObtenerDetalleUsuario(TDT detalleTelefonico, char nombre[65], TListaSim
 		BuscarDetallesUsuario(detalleTelefonico, RAIZ, nombre, listaDetallesUsuario);
 	}
 	else{
-		fprintf(stderr, "Error: No se encontró el arbol de detalles de llamadas\n");
+		fprintf(stderr, "Error: No se encontrÃ³ el arbol de detalles de llamadas\n");
 	}
 }
 
@@ -120,7 +120,7 @@ void TDT_ObtenerDetalleNoAsignada(TDT detalleTelefonico, TListaSimple* listaDeta
 		BuscarDetallesNoAsignados(detalleTelefonico, RAIZ, listaDetallesNoAsignados);
 	}
 	else{
-		fprintf(stderr, "Error: No se encontró el arbol de detalles de llamadas\n");
+		fprintf(stderr, "Error: No se encontrÃ³ el arbol de detalles de llamadas\n");
 	}
 }
 
@@ -184,7 +184,7 @@ void TDT_ObtenerDetalleDeTelefonosPorAreaFisica (TDT TDT, char secuencia[10], TL
 		BuscarDetallesSecuencia(TDT, RAIZ, secuencia, listaDetallesSecuencia);
 	}
 	else{
-		fprintf(stderr, "Error: No se encontró el arbol de detalles de llamadas\n");
+		fprintf(stderr, "Error: No se encontrÃ³ el arbol de detalles de llamadas\n");
 	}
 }
 
@@ -318,11 +318,11 @@ void crearArbolDetalle(TDT* TDT, FILE *p_archivo_facturas){/*variables locales*/
 /* 
  * PRE:	listaArchivosUsuarios creada.
  * 		
- * POS:	Los números telefónicos encontrados en cada uno de los archivos de la lista son
- * 		asociados con el nombre del archivo e insertados en el árbol de telefonos de usuarios 
+ * POS:	Los nÃºmeros telefÃ³nicos encontrados en cada uno de los archivos de la lista son
+ * 		asociados con el nombre del archivo e insertados en el Ã¡rbol de telefonos de usuarios 
  *		que posee detalleTelefonico.
  *		Se retorna 0 en caso de que no hayan habido errores y 1 en caso contrario.
- * 		Los errores que pudieran ocurrir se imprimirán por stderr.
+ * 		Los errores que pudieran ocurrir se imprimirÃ¡n por stderr.
  */
 int crearArbolTelefonosUsuarios(TDT* detalleTelefonico, TListaSimple listaArchivosUsuarios){
 	FILE* fileAux;
@@ -341,7 +341,7 @@ int crearArbolTelefonosUsuarios(TDT* detalleTelefonico, TListaSimple listaArchiv
 	TpFuncionComparar* pFuncionComparar = &compararTelefonosUsuarios;
 	ABO_Crear(&detalleTelefonico->arbolUsuarios, sizeof(TNodoTelefonosUsuarios), pFuncionComparar);
 	
-	// leo todos los archivos de la lista de archivos de teléfonos de usuarios
+	// leo todos los archivos de la lista de archivos de telÃ©fonos de usuarios
 	while ((mov)&&(!error)){
 		error = 0;
 		strcpy(prefijos[0], "");
@@ -352,15 +352,15 @@ int crearArbolTelefonosUsuarios(TDT* detalleTelefonico, TListaSimple listaArchiv
 		fileAux = archivoUsuario.archivo;
 		// le asigno al nombre del nodo el nombre del archivo
 		strcpy(nodoAux.nombre, archivoUsuario.nombre);
-		// leo todas las líneas del archivo de teléfonos de usuarios
+		// leo todas las lÃ­neas del archivo de telÃ©fonos de usuarios
 		while ((!feof(fileAux))&&(!error)){
 			error = 0;
 			fgets(linea, 100, fileAux);
 			sacarFinDeLinea(linea);
 			longitudLinea = strlen(linea);
-			// si la línea tiene longitud menor o igual a 5 entonces digo que es un prefijo y lo cargo en el arreglo de prefijos
-			// si la línea tiene longitud mayor a 4 y menor a 10 le concateno el prefijo correspondiente y agrego el nodo al árbol
-			// si la línea tiene longitud igual a 10 agrego el nodo al arbol
+			// si la lÃ­nea tiene longitud menor o igual a 5 entonces digo que es un prefijo y lo cargo en el arreglo de prefijos
+			// si la lÃ­nea tiene longitud mayor a 4 y menor a 10 le concateno el prefijo correspondiente y agrego el nodo al Ã¡rbol
+			// si la lÃ­nea tiene longitud igual a 10 agrego el nodo al arbol
 			switch (longitudLinea){
 				case 1:
 					if (sonSoloNumeros(linea)){
@@ -458,30 +458,30 @@ int crearArbolTelefonosUsuarios(TDT* detalleTelefonico, TListaSimple listaArchiv
 
 /* 
  * PRE:	abo creado.
- * 		MOV dentro del rango válido.
+ * 		MOV dentro del rango vÃ¡lido.
  * 		listaNombres creada.
  * 		cantUsuarios igual a 0.
  * 		
- * POS:	Los nombres de los usuarios que tengan asociado el número telefónico dado serán
- * 		cargados en listaNombres. La cantidad de los mismos será cargada en cantUsuarios.
+ * POS:	Los nombres de los usuarios que tengan asociado el nÃºmero telefÃ³nico dado serÃ¡n
+ * 		cargados en listaNombres. La cantidad de los mismos serÃ¡ cargada en cantUsuarios.
  */
 void BuscarUsuariosTelefono(TABO abo, int MOV, char numero[11], TListaSimple* listaNombres, int* cantUsuarios){
 	TNodoTelefonosUsuarios eabo;
 	int error, comparacion;
-	// me muevo a la posicón dada
+	// me muevo a la posicÃ³n dada
 	ABO_MoverCte(&abo, MOV, &error);
-	// si es una hoja no hago nada y salgo de la función
+	// si es una hoja no hago nada y salgo de la funciÃ³n
 	if (!error){
 		ABO_ElemCte(abo, &eabo);
 		char numeroAux[11];
 		TNT_ObtenerNumero(eabo.numeroTelefonico, numeroAux);
 		comparacion = strcmp(numero, numeroAux);
 		
-		// si el número que busco es igual al número del corriente entonces ahora busco 
-		// a partir sus dos hijos ya que estos podrían tener el mismo número pero distinto nombre
-		// si el número que busco es mayor al número del corriente encontes ahora busco
+		// si el nÃºmero que busco es igual al nÃºmero del corriente entonces ahora busco 
+		// a partir sus dos hijos ya que estos podrÃ­an tener el mismo nÃºmero pero distinto nombre
+		// si el nÃºmero que busco es mayor al nÃºmero del corriente encontes ahora busco
 		// a partir de su hijo derecho
-		// si el número que busco es mayor al número del corriente encontes ahora busco
+		// si el nÃºmero que busco es mayor al nÃºmero del corriente encontes ahora busco
 		// a partir de su hijo derecho
 		switch (comparacion){
 			case 0:
@@ -502,10 +502,10 @@ void BuscarUsuariosTelefono(TABO abo, int MOV, char numero[11], TListaSimple* li
 
 /* 
  * PRE:	detalleTelefonico creado
- * 		MOV dentro del rango válido.
+ * 		MOV dentro del rango vÃ¡lido.
  * 		listaNombres creada.
  * 		
- * POS:	Los detalles que tengan un numero asociado al usuario dado serán guardados en listaDetallesUsuario.
+ * POS:	Los detalles que tengan un numero asociado al usuario dado serÃ¡n guardados en listaDetallesUsuario.
  */
 void BuscarDetallesUsuario(TDT detalleTelefonico, int MOV, char nombre[65], TListaSimple* listaDetallesUsuario){
 	TNodoDetalle eabo;
@@ -542,7 +542,7 @@ void BuscarDetallesUsuario(TDT detalleTelefonico, int MOV, char nombre[65], TLis
 
 /* 
  * PRE:	detalleTelefonico creado
- * 		MOV dentro del rango válido.
+ * 		MOV dentro del rango vÃ¡lido.
  * 		listaDetallesNoAsignados creada.
  * 		
  * POS:	Los detalles no esten asignados a ningun usuario seran insertados en la lista de detalles no asignados.
@@ -580,7 +580,7 @@ void BuscarDetallesNoAsignados(TDT detalleTelefonico, int MOV, TListaSimple* lis
  * 		1 si elem1 mayor a elem2
  * 	   -1 si elem2 menor a elem2
  * 
- * 		Clave primaria: numero de teléfono
+ * 		Clave primaria: numero de telÃ©fono
  *  	Clave secundaria: nombre
  */
 int compararTelefonosUsuarios(void* elem1, void* elem2){
@@ -592,10 +592,10 @@ int compararTelefonosUsuarios(void* elem1, void* elem2){
 	TNT_ObtenerNumero(eabo1->numeroTelefonico, numero1);
 	TNT_ObtenerNumero(eabo2->numeroTelefonico, numero2);
 	
-	// comparo los números
+	// comparo los nÃºmeros
 	comparacionTelefonos = strcmp(numero1, numero2);
 	comparacion = comparacionTelefonos;
-	// si los números son iguales comparo los nombres
+	// si los nÃºmeros son iguales comparo los nombres
 	if (comparacionTelefonos == 0){
 		comparacionNombres = strcmp(eabo1->nombre, eabo2->nombre);
 		comparacion = comparacionNombres;
@@ -611,7 +611,7 @@ int compararTelefonosUsuarios(void* elem1, void* elem2){
  * 		1 si elem1 mayor a elem2
  * 	   -1 si elem2 menor a elem2
  * 
- * 		Clave primaria: numero de teléfono
+ * 		Clave primaria: numero de telÃ©fono
  *  	Clave secundaria: fecha
  */
 int compararDetalle (void* elem1, void* elem2){
@@ -674,7 +674,7 @@ void separarPalabras(char cadena[], char palabrasSeparadas[64][64], int* cantPal
 
 	// recorro toda la cadena
 	for (i = 0; i <= longitud; i++){
-		// si encuentro un caracter de separación copio palabraAux a palabrasSeparadas
+		// si encuentro un caracter de separaciÃ³n copio palabraAux a palabrasSeparadas
 		if ((cadena[i] == '\0')||(cadena[i] == ';')||(cadena[i] == ',')||(cadena[i] == '\n')||(cadena[i] == ' ')||(cadena[i] == '	')){
 			if (cantLetras > 0){
 				int k;
@@ -686,7 +686,7 @@ void separarPalabras(char cadena[], char palabrasSeparadas[64][64], int* cantPal
 				cantLetras = 0;
 			}
 		}
-		// si no encuentro un caracter de separación concateno el mismo a palabraAux
+		// si no encuentro un caracter de separaciÃ³n concateno el mismo a palabraAux
 		else{
 			palabraAux[cantLetras] = cadena[i];
 			cantLetras++;
@@ -697,7 +697,7 @@ void separarPalabras(char cadena[], char palabrasSeparadas[64][64], int* cantPal
 /* 
  * PRE:	-
  * 		
- * POS:	Imprime por pantalla el número telefónico seguido por el nombre del usuario
+ * POS:	Imprime por pantalla el nÃºmero telefÃ³nico seguido por el nombre del usuario
  * 		que tiene asociado el mismo.
  */
 void imprimirTelefonoUsuario(void* elemento){
@@ -710,7 +710,7 @@ void imprimirTelefonoUsuario(void* elemento){
 /* 
  * PRE:	-
  * 		
- * POS:	Imprime por pantalla una línea de detalle.
+ * POS:	Imprime por pantalla una lÃ­nea de detalle.
  */
 void imprimirDetalle(void* elemento){
 	
@@ -738,7 +738,7 @@ void imprimirDetalle(void* elemento){
 /* 
  * PRE:	pFuncionImprimir distinto de NULL.
  * 		
- * POS:	Imprime por pantalla el contenido del árbol.
+ * POS:	Imprime por pantalla el contenido del Ã¡rbol.
  */
 void imprimirArbol(TABO abo, int MOV, TpFuncionImprimir* pFuncionImprimir){
 	TNodoTelefonosUsuarios eabo;
@@ -758,7 +758,7 @@ void imprimirArbol(TABO abo, int MOV, TpFuncionImprimir* pFuncionImprimir){
  * POS:	Imprime por pantalla los gastos generales.
  */
 void imprimirGastosGenerales(TGastosGenerales gastosGenerales){
-	printf("Abono Línea: %4.2f\n", gastosGenerales.abono);
+	printf("Abono LÃ­nea: %4.2f\n", gastosGenerales.abono);
 	printf("Conceptos de Internet: %4.2f\n", gastosGenerales.concepto);
 	printf("Detalle llamadas locales: %4.2f\n", gastosGenerales.detalleLlamadas);
 	printf("Detector de llamadas: %4.2f\n", gastosGenerales.detectorLlamadas);

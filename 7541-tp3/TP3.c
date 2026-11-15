@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-	  printf("\nLA ruta del archivo de configuración es invalida.\n");
+	  printf("\nLA ruta del archivo de configuraciÃ³n es invalida.\n");
 	  return -1;
 	}
 		

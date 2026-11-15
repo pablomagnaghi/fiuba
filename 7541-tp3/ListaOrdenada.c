@@ -98,7 +98,7 @@ void lo_BorrarCorriente(TListaOrdenada *pLo){
 Pre: Lo creada.
 Post: E se agrego a la lista y es el actual elemento corriente.
 Si M=LO_PRIMERO: se inserto como primero de la lista.
-Si M=LO_SIGUIENTE: se inserto después del elemento corriente.
+Si M=LO_SIGUIENTE: se inserto despuÃ©s del elemento corriente.
 Si M=LO_ANTERIOR: se inserto antes del elemento corriente.
 Si pudo insertar el elemento devuelve TRUE, sino FALSE.*/
 int lo_Insertar(TListaOrdenada *pLo, void* pElem){
