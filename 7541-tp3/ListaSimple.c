@@ -1,5 +1,5 @@
 #include "ListaSimple.h"
-#include <malloc.h>
+#include <stdlib.h>
 #include <memory.h>
 /* ls_Crear
 Pre: Ls no fue creada.

@@ -1,5 +1,5 @@
 #include "ListaOrdenada.h"
-#include <malloc.h>
+#include <stdlib.h>
 #include <memory.h>
 
 /* lo_Crear
