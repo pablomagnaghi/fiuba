@@ -29,7 +29,7 @@ public class Sucesion {
 		tamanio ++;
 	}
 	/*metodo: getTamanio() 
-	  devuelve sólo la cantidad de  
+	  devuelve sÃ³lo la cantidad de  
 	  elementos que contiene el objeto
 	  unaSucesion en ese momento*/
 	public int getTamanio() {
