@@ -4,13 +4,13 @@
 
 void Crear_Lista_Filtros(TListaSimple *Lista_Filtros, FILE *parchivofiltros)
 {
-/* Variable aux que se insertar· como elemento de la lista una vez leida 
+/* Variable aux que se insertar√° como elemento de la lista una vez leida 
  * una linea del archivo de filtros*/
 TFilter aux;
-/*Variables que ser‡n los tipos de datos_filtros segun la funcion a invocar*/
+/*Variables que ser√†n los tipos de datos_filtros segun la funcion a invocar*/
 int cant;
 TPalabra palabra;
-/*Variables que contendr‡n temporariamente lo leido del archivo*/
+/*Variables que contendr√†n temporariamente lo leido del archivo*/
 char linea[100];
 char funcion[35];
 char parametros[65];
@@ -127,7 +127,7 @@ int j,i,error_filtro;
 /* Se cierra el archivo de definiciones de filtro*/     
        fclose(parchivofiltros);	
 }	     
-/*Fin de la funciÛn*/	
+/*Fin de la funci√≥n*/	
 
 
 
@@ -151,14 +151,14 @@ void Destruir_Lista_Filtros(TListaSimple * Lista_Filtros)
 /*Mayuscula*/  
 
 /* Pre: entrada y salida creados.
-datos_filtro apunta a una estructura conocida por la funciÛn 
+datos_filtro apunta a una estructura conocida por la funci√≥n 
 eof indica si hay fin del archivo, es decir que las palabras que
-est·n en el tubo
+est√°n en el tubo
 de entrada son todas las que quedan.
 Post: Ejecuta el procesamiento.Pasa la palabra a mayusculas
-Devuelve TRUE si eof == TRUE y procesÛ todas las palabras de la
+Devuelve TRUE si eof == TRUE y proces√≥ todas las palabras de la
 entrada o
-si es seguro que no va a emitir m·s palabras, sino devuelve FALSE.
+si es seguro que no va a emitir m√°s palabras, sino devuelve FALSE.
 Si pudo generar un resultado, lo emite en el tubo de salida y
 devuelve el control al ejecutor.
 */
@@ -192,14 +192,14 @@ TPalabra nueva;
 
 
 /* Pre: entrada y salida creados.
-datos_filtro apunta a una estructura conocida por la funciÛn 
+datos_filtro apunta a una estructura conocida por la funci√≥n 
 eof indica si hay fin del archivo, es decir que las palabras que
-est·n en el tubo
+est√°n en el tubo
 de entrada son todas las que quedan.
 Post: Ejecuta el procesamiento. Pasa la palabra a minusculas
-Devuelve TRUE si eof == TRUE y procesÛ todas las palabras de la
+Devuelve TRUE si eof == TRUE y proces√≥ todas las palabras de la
 entrada o
-si es seguro que no va a emitir m·s palabras, sino devuelve FALSE.
+si es seguro que no va a emitir m√°s palabras, sino devuelve FALSE.
 Si pudo generar un resultado, lo emite en el tubo de salida y
 devuelve el control al ejecutor.
 */
@@ -240,14 +240,14 @@ void PrimerosN_Crear(void *filtro,int n )
 }
 
 /* Pre: entrada y salida creados.
-datos_filtro apunta a una estructura conocida por la funciÛn 
+datos_filtro apunta a una estructura conocida por la funci√≥n 
 eof indica si hay fin del archivo, es decir que las palabras que
-est·n en el tubo
+est√°n en el tubo
 de entrada son todas las que quedan.
 Post: Ejecuta el procesamiento. Devuelve los primeros N del total
-Devuelve TRUE si eof == TRUE y procesÛ todas las palabras de la
+Devuelve TRUE si eof == TRUE y proces√≥ todas las palabras de la
 entrada o
-si es seguro que no va a emitir m·s palabras, sino devuelve FALSE.
+si es seguro que no va a emitir m√°s palabras, sino devuelve FALSE.
 Si pudo generar un resultado, lo emite en el tubo de salida y
 devuelve el control al ejecutor.
 */
@@ -301,14 +301,14 @@ void UltimosN_Crear(void *filtro,int n)
 
 
 /* Pre: entrada y salida creados.
-datos_filtro apunta a una estructura conocida por la funciÛn 
+datos_filtro apunta a una estructura conocida por la funci√≥n 
 eof indica si hay fin del archivo, es decir que las palabras que
-est·n en el tubo
+est√°n en el tubo
 de entrada son todas las que quedan.
 Post: Ejecuta el procesamiento. Devuelve los ultimos N del total
-Devuelve TRUE si eof == TRUE y procesÛ todas las palabras de la
+Devuelve TRUE si eof == TRUE y proces√≥ todas las palabras de la
 entrada o
-si es seguro que no va a emitir m·s palabras, sino devuelve FALSE.
+si es seguro que no va a emitir m√°s palabras, sino devuelve FALSE.
 Si pudo generar un resultado, lo emite en el tubo de salida y
 devuelve el control al ejecutor.
 */
@@ -375,12 +375,12 @@ void ExtraerN_Crear(void *filtro,int n)
 }
 
 /* Pre: entrada y salida creados.
-datos_filtro apunta a una estructura conocida por la funciÛn 
+datos_filtro apunta a una estructura conocida por la funci√≥n 
 eof indica si hay fin del archivo, es decir que las palabras que
-est·n en el tubo de entrada son todas las que quedan.
+est√°n en el tubo de entrada son todas las que quedan.
 Post: Ejecuta el procesamiento. Extrae el campo N del total
-Devuelve TRUE si eof == TRUE y procesÛ todas las palabras de la
-entrada o si es seguro que no va a emitir m·s palabras, sino devuelve FALSE.
+Devuelve TRUE si eof == TRUE y proces√≥ todas las palabras de la
+entrada o si es seguro que no va a emitir m√°s palabras, sino devuelve FALSE.
 Si pudo generar un resultado, lo emite en el tubo de salida y
 devuelve el control al ejecutor.
 */

@@ -265,7 +265,7 @@ int puntoC(int dimension, float omega, float rtol, int numeroIteraciones, int im
 	if (imprimir == 1){
 		printf("\n******************************** PUNTO C ********************************\n");
 		printf("\nDimension: %d\n", dimension);
-		printf("\nN° de Iteraciones: %d\n", numeroIteraciones);
+		printf("\nNÂ° de Iteraciones: %d\n", numeroIteraciones);
 		printf("\nOmega: %f\n", omega);
 	}
 
@@ -337,7 +337,7 @@ void puntoD(int dimension, float rtol, float omegaI, float omegaF,
 	float tabla[cantMuestras][2];
 
 	if (imprimir == 1)
-		printf("\nOmega\t\tN° Iteraciones");
+		printf("\nOmega\t\tNÂ° Iteraciones");
 	float step = (omegaF - omegaI) / cantMuestras;
 	for(omega = omegaI; omega < omegaF; omega += step){
 		tabla[j][0] = omega;
@@ -394,7 +394,7 @@ void puntoE(int dimension, float rtol, float omegaI, float omegaF,
 	float tabla[cantMuestras][2];
 
 	if (imprimir == 1)
-		printf("\nOmega\t\tN° Iteraciones");
+		printf("\nOmega\t\tNÂ° Iteraciones");
 	float step = (omegaF - omegaI) / cantMuestras;
 	for(omega = omegaI; omega < omegaF; omega += step){
 		tabla[j][0] = omega;
