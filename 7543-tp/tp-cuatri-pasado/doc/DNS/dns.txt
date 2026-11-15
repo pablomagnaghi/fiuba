@@ -1,15 +1,15 @@
 Existen tres servidores DNS y tres zonas (mercedes, zarate y azul).
 
-El DNS Root est· en la red AMAPOLA de la zona MERCEDES con ip 192.168.25.7.
+El DNS Root est√° en la red AMAPOLA de la zona MERCEDES con ip 192.168.25.7.
 Delega la autoridad en los restantes dos servidores de nivel dos, repartiendose:
 DNS1 en la red DALIA de la zona AZUL con ip 10.111.25.131, para la zona AZUL
 DNS2 en la red BERGONIA de la zona MERCEDES con ip 10.111.25.197, para el resto de las zonas (MERCEDES y ZARATE)
 
 La DB del Root solo tiene registros NS hacia los otros servidores DNS de nivel 2.
-La parte m·s compleja de este servidor est· en la delegaciÛn del mapeo reverso. 
-Se notÛ que es una practica com˙n crear nuevos nombres canÛnicos y hacer a la direcciones ip reales aliases de las primeras, en una relaciÛn uno a uno. En conjunto con la creaciÛn de un subdominio por cada subnet y el posterior otorgamiento de autoridad sobre este dominio al servidor que se desea que tenga autoridad sobre las ips reales, logra el cometido.
-En caso de no estar subneteado, se procede similarmente, delegando cada direcciÛn al name server. Por simplificaciÛn se usÛ el statement $GENERATE para simplificar.
+La parte m√°s compleja de este servidor est√° en la delegaci√≥n del mapeo reverso. 
+Se not√≥ que es una practica com√∫n crear nuevos nombres can√≥nicos y hacer a la direcciones ip reales aliases de las primeras, en una relaci√≥n uno a uno. En conjunto con la creaci√≥n de un subdominio por cada subnet y el posterior otorgamiento de autoridad sobre este dominio al servidor que se desea que tenga autoridad sobre las ips reales, logra el cometido.
+En caso de no estar subneteado, se procede similarmente, delegando cada direcci√≥n al name server. Por simplificaci√≥n se us√≥ el statement $GENERATE para simplificar.
 
-Los DNS de nivel dos van a resolver al Root, por lo que si se cae el root, ser· imposible para los de nivel dos resolver querys incluso en el subdominio sobre el que tienen autoridad.
+Los DNS de nivel dos van a resolver al Root, por lo que si se cae el root, ser√° imposible para los de nivel dos resolver querys incluso en el subdominio sobre el que tienen autoridad.
 
  
