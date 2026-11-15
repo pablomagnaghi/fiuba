@@ -19,26 +19,26 @@ int TamanioDato;
 } TCola;
 /*C_Crear
 Pre: C no fue creada.
-Post: C creada y vacía. */
+Post: C creada y vacÃ­a. */
 void C_Crear(TCola *pC, int TamanioDato);
 /*C_Vaciar
 Pre: C creada.
-Post: C vacía. */
+Post: C vacÃ­a. */
 void C_Vaciar(TCola *pC);
 /*C_Vacia
 Pre: C creada.
-Post: Si C está vacía devuelve TRUE, sino FALSE. */
+Post: Si C estÃ¡ vacÃ­a devuelve TRUE, sino FALSE. */
 
 int C_Vacia(TCola C);
 /*C_Agregar
 Pre: C creada.
-Post: E se agregó como último elemento de C.
+Post: E se agregÃ³ como Ãºltimo elemento de C.
 Devuelve FALSE si no pudo agregar E, sino devuelve TRUE.*/
 int C_Agregar(TCola *pC, void* pE);
 /*C_Sacar
 Pre: C creada.
 Post: Se extrajo de C el primer elemento y se devuelve en E.
-Si no pudo extraer el elemento (porque la cola estaba vacía) devuelve FALSE,
+Si no pudo extraer el elemento (porque la cola estaba vacÃ­a) devuelve FALSE,
 sino devuelve TRUE.*/
 int C_Sacar(TCola *pC, void* pE);
 

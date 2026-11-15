@@ -20,25 +20,25 @@ int TamanioDato;
 } TPila;
 /*P_Crear
 Pre: P no fue creada.
-Post: P creada y vacÌa. */
+Post: P creada y vac√≠a. */
 void P_Crear(TPila *pP, int TamanioDato);
 /*P_Vaciar
 Pre: P creada.
-Post: P vacÌa. */
+Post: P vac√≠a. */
 void P_Vaciar(TPila *pP);
 /*P_Vacia
 Pre: P creada.
-Post: Si P est· vacÌa devuelve TRUE, sino FALSE. */
+Post: Si P est√° vac√≠a devuelve TRUE, sino FALSE. */
 int P_Vacia(TPila P);
 /*P_Agregar
 Pre: P creada.
-Post: E se agregÛ como Tope de P.
+Post: E se agreg√≥ como Tope de P.
 Devuelve FALSE si no pudo agregar E, sino devuelve TRUE.*/
 int P_Agregar(TPila *pP, void* pE);
 /*P_Sacar
 Pre: P creada.
 Post: Se extrajo de P el tope y se devuelve en E.
-Si no pudo extraer el elemento (porque la pila estaba vacÌa) devuelve FALSE,
+Si no pudo extraer el elemento (porque la pila estaba vac√≠a) devuelve FALSE,
 sino devuelve TRUE.*/
 int P_Sacar(TPila *pP, void* pE);
 
