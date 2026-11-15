@@ -1,0 +1,12 @@
+Tiempomuerto = 10
+Tiempopresa = 25
+Tiempopacman = 2
+ArchivoLaberinto = 'C:\Users\luis\Desktop\PACMAN_ZIP\grupo5\res\escenariosxml\escenario2.xml'
+DirSalida = 'C:\Users\luis\Desktop\PACMAN_ZIP\grupo5\res\escenariosxml\salida\'
+DirOrdenes = 'C:\Users\luis\Desktop\PACMAN_ZIP\grupo5\res\escenariosxml\ordenes\'
+distanciaBuscador = 3
+distanciaPerezoso = 2
+distanciaZonzo = 1
+fantasma buscador
+fantasma zonzo
+fantasma perezoso
