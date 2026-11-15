@@ -1,5 +1,5 @@
 #include "Cola.h"
-#include <malloc.h>
+#include <stdlib.h>
 #include <memory.h>
 /*C_Crear
 Pre: C no fue creada.

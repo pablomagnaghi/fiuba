@@ -1,5 +1,5 @@
 #include "Pila.h"
-#include <malloc.h>
+#include <stdlib.h>
 #include <memory.h>
 
 /*P_Crear
