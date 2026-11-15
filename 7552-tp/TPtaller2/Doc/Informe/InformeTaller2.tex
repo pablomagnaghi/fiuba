@@ -1,14 +1,14 @@
 
-%CodificaciÛn Europeo occidental (ISO 8859-1)
+%Codificaci√≥n Europeo occidental (ISO 8859-1)
 
-%Se define el tamaÒo de la letra principal
+%Se define el tama√±o de la letra principal
 \documentclass[11pt]{article}
 
-\title{Trabajo Pr·ctico de Taller de programaciÛn II}
+\title{Trabajo Pr√°ctico de Taller de programaci√≥n II}
 
 %------------Paquetes------------
 
-%Define el tamaÒo de la pagina y sus margenes
+%Define el tama√±o de la pagina y sus margenes
 \usepackage[a4paper,headheight=15pt,scale={0.8,0.8}]{geometry}
 
 %Fuente
@@ -25,9 +25,9 @@
 %Para encabezados y pie de pagina personalizados
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{75.52 - Taller de programaciÛn II}
+\lhead{75.52 - Taller de programaci√≥n II}
 \chead{}
-\rhead{AlbarracÌn, Ferrero, Guagnini, Magnaghi}
+\rhead{Albarrac√≠n, Ferrero, Guagnini, Magnaghi}
 \lfoot{}
 \cfoot{}
 \rfoot{\thepage}
@@ -46,20 +46,20 @@
 % Titulo
 \begin{center}
   \vspace{.5cm}
-  \Large{Trabajo pr·ctico}\\
+  \Large{Trabajo pr√°ctico}\\
   \vspace{.5cm}
-  \Large{75.52 - Taller de programaciÛn II}\\
+  \Large{75.52 - Taller de programaci√≥n II}\\
   \hrulefill \\
   \vspace{2cm}
-  \large{MÛdulo para herramienta de desarrollo conducido por modelos para el diseÒo de diagramas de entidades 
-    y relaciones basado en una ontologÌa de sistemas de gestiÛn.}
+  \large{M√≥dulo para herramienta de desarrollo conducido por modelos para el dise√±o de diagramas de entidades 
+    y relaciones basado en una ontolog√≠a de sistemas de gesti√≥n.}
 \end{center}
 
 \vfill
 
 Integrantes: \ \ \ 
 \begin{tabular}{ | l l l }
-AlbarracÌn, Luis & 86901 & luisalbarracin@gmail.com  \\
+Albarrac√≠n, Luis & 86901 & luisalbarracin@gmail.com  \\
 Ferrero, Gonzalo & 89657 & ferrerogonzalo@gmail.com \\
 Guagnini, Enzo & 88325 & enzoguagnini@gmail.com \\
 Magnaghi, Pablo & 88126 & pablomagnaghi@gmail.com 
@@ -89,45 +89,45 @@ Patricia Calvo
 %---------------------Comienzo del Informe-------------------
 
 \section{Resumen}
-  El siguiente trabajo consiste en el desarrollo de una aplicaciÛn que permite realizar diagramas de entidades y relaciones para modelar datos.
+  El siguiente trabajo consiste en el desarrollo de una aplicaci√≥n que permite realizar diagramas de entidades y relaciones para modelar datos.
   
-  La aplicaciÛn cuenta con una interfaz de escritorio, persistencia de los datos, generaciÛn de reportes de validaciÛn y mÈtricas, y exportaciÛn 
-  o impresiÛn de los diagramas.
+  La aplicaci√≥n cuenta con una interfaz de escritorio, persistencia de los datos, generaci√≥n de reportes de validaci√≥n y m√©tricas, y exportaci√≥n 
+  o impresi√≥n de los diagramas.
    
 \section{Herramientas utilizadas}
-  Para el desarrollo de la aplicaciÛn se utilizaron:
+  Para el desarrollo de la aplicaci√≥n se utilizaron:
   \begin{itemize}
   \item El sistema operativo Ubuntu Linux 10.04.
-  \item El lenguaje de programaciÛn  C++, haciendo uso de la programaciÛn orientada a objetos.
+  \item El lenguaje de programaci√≥n  C++, haciendo uso de la programaci√≥n orientada a objetos.
   \item Las bibliotecas gtkmm 2.4 para la vista y libxml 2.0 para la persistencia.
   \end{itemize}
 
 \section{Desarrollo}
-  El desarrollo se dividiÛ en 2 etapas:
+  El desarrollo se dividi√≥ en 2 etapas:
 
-  \subsection{DiseÒo del modelo y esquemas de persistencia}
-    En el inicio del proyecto se analizaron los requerimientos de la aplicaciÛn y se diseÒÛ un modelo que permitiera resolver el problema planteado.
+  \subsection{Dise√±o del modelo y esquemas de persistencia}
+    En el inicio del proyecto se analizaron los requerimientos de la aplicaci√≥n y se dise√±√≥ un modelo que permitiera resolver el problema planteado.
     Luego de eso, utilizando XMLSchema, se especificaron los esquemas de persistencia separando en dos archivos distintos los componentes del diagrama
-    y su representaciÛn.
+    y su representaci√≥n.
   
   \subsection{Desarrollo de los componentes del modelo, vista, controlador y persistencia}
-    Haciendo uso de la arquitectura MVC, se desarrollÛ la aplicaciÛn en 3 mÛdulos distintos (modelo, vista y controlador, y persistencia)
-    permitiendo asÌ la paralelizaciÛn de tareas entre los integrantes.
+    Haciendo uso de la arquitectura MVC, se desarroll√≥ la aplicaci√≥n en 3 m√≥dulos distintos (modelo, vista y controlador, y persistencia)
+    permitiendo as√≠ la paralelizaci√≥n de tareas entre los integrantes.
   
-\section{DescripciÛn del programa}
+\section{Descripci√≥n del programa}
 
-  A continuaciÛn se describe la interfaz de la aplicaciÛn
+  A continuaci√≥n se describe la interfaz de la aplicaci√≥n
   
   \subsection{Interfaz de usuario}
 
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/principal.png}
-    \caption{Vista general de la aplicaciÛn.}
+    \caption{Vista general de la aplicaci√≥n.}
   \end{figure}
 
   En la parte superior se observan los botones con las funcionalidades principales del programa. En la parte derecha se observa el diagrama abierto actualmente.
-  Y en la parte izquierda se observa el ·rbol con los componentes del diagrama y sus diagramas hijos. 
+  Y en la parte izquierda se observa el √°rbol con los componentes del diagrama y sus diagramas hijos. 
 
   \subsection{Funcionalidades}
   \begin{figure}[H]
@@ -142,130 +142,130 @@ Patricia Calvo
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/nuevoDiagrama.png}
-    \caption{CreaciÛn de un nuevo diagrama.}
+    \caption{Creaci√≥n de un nuevo diagrama.}
   \end{figure}
    
-  Haciendo click en el botÛn ``Agregar diagrama hijo'', se abre una ventana que permite el ingreso del nombre del nuevo diagrama.
+  Haciendo click en el bot√≥n ``Agregar diagrama hijo'', se abre una ventana que permite el ingreso del nombre del nuevo diagrama.
   Luego de aceptar, se agrega el diagrama al final de la lista de componentes del diagrama actual. Para abrirlo y comenzar a agregarle componentes es necesario
   hacer doble click en su nombre.
   
   \subsubsection{Eliminar diagrama}
   
-  Haciendo click en el botÛn ``Eliminar diagrama'' se elimina el diagrama que est· abierto actualmente. El diagrama principal de un proyecto
+  Haciendo click en el bot√≥n ``Eliminar diagrama'' se elimina el diagrama que est√° abierto actualmente. El diagrama principal de un proyecto
   no puede ser borrado.
   
   \subsubsection{Crear entidad nueva}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/entidadNueva.png}
-    \caption{CreaciÛn de una entidad nueva.}
+    \caption{Creaci√≥n de una entidad nueva.}
   \end{figure}
   
-  Haciendo click en el botÛn ``Entidad'', se abre una ventana para ingresar los datos de la entidad nueva. En ella se pueden ingresar los atributos, el tipo
+  Haciendo click en el bot√≥n ``Entidad'', se abre una ventana para ingresar los datos de la entidad nueva. En ella se pueden ingresar los atributos, el tipo
   y el nombre.
 
-  \subsubsection{Crear relaciÛn}
+  \subsubsection{Crear relaci√≥n}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/relacion.png}
-    \caption{CreaciÛn de una relaciÛn.}
+    \caption{Creaci√≥n de una relaci√≥n.}
   \end{figure}
 
-  Haciendo click en el botÛn ``RelaciÛn'', se abre una ventana para ingresar los datos de una nueva relaciÛn. En la parte izquierda se eligen las entidades
-  que formaran parte, junto con sus cardinalidades. En la parte superior se ingresa el nombre de la entidad. Y en la secciÛn derecha se ingresan el tipo
-  y los atributos de la relaciÛn.
+  Haciendo click en el bot√≥n ``Relaci√≥n'', se abre una ventana para ingresar los datos de una nueva relaci√≥n. En la parte izquierda se eligen las entidades
+  que formaran parte, junto con sus cardinalidades. En la parte superior se ingresa el nombre de la entidad. Y en la secci√≥n derecha se ingresan el tipo
+  y los atributos de la relaci√≥n.
   
-  \subsubsection{Crear jerarquÌa}
+  \subsubsection{Crear jerarqu√≠a}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/jerarquia.png}
-    \caption{CreaciÛn de una jerarquÌa.}
+    \caption{Creaci√≥n de una jerarqu√≠a.}
   \end{figure}
   
-  Haciendo click en el botÛn ``JerarquÌa'' se abre una ventana que permite el ingreso del nombre de la jerarquÌa, la entidad general o padre, y las entidades
-  especializadas o hijas. En la secciÛn derecha se elige la cobertura y la intersecciÛn de la jerarquÌa.
+  Haciendo click en el bot√≥n ``Jerarqu√≠a'' se abre una ventana que permite el ingreso del nombre de la jerarqu√≠a, la entidad general o padre, y las entidades
+  especializadas o hijas. En la secci√≥n derecha se elige la cobertura y la intersecci√≥n de la jerarqu√≠a.
   
   \subsubsection{Crear entidad global}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/entidadGlobal.png}
-    \caption{CreaciÛn de una entidad global.}
+    \caption{Creaci√≥n de una entidad global.}
   \end{figure}
   
-  Haciendo click en el botÛn ``Entidad Global'' se abre una ventana que muestra los diagramas ancestros del diagrama actual. Eligiendo un diagrama, se observan
-  en la secciÛn derecha, sus entidades nuevas. Eligiendo una de las entidades, se agregar· al diagrama actual en forma de entidad global.
+  Haciendo click en el bot√≥n ``Entidad Global'' se abre una ventana que muestra los diagramas ancestros del diagrama actual. Eligiendo un diagrama, se observan
+  en la secci√≥n derecha, sus entidades nuevas. Eligiendo una de las entidades, se agregar√° al diagrama actual en forma de entidad global.
   
-  \subsubsection{ValidaciÛn}
+  \subsubsection{Validaci√≥n}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/validacion.png}
-    \caption{ValidaciÛn de diagramas.}
+    \caption{Validaci√≥n de diagramas.}
   \end{figure}
   
-  Haciendo click en el botÛn ``Validar'' se abre una ventana con los resultados de la validaciÛn del modelo y de la vista para todos los diagramas del proyecto.
-  Adem·s, se genera un reporte para cada diagrama con los detalles de la validaciÛn del modelo.
+  Haciendo click en el bot√≥n ``Validar'' se abre una ventana con los resultados de la validaci√≥n del modelo y de la vista para todos los diagramas del proyecto.
+  Adem√°s, se genera un reporte para cada diagrama con los detalles de la validaci√≥n del modelo.
   
-  \subsubsection{MÈtricas}
+  \subsubsection{M√©tricas}
   
-  Haciendo click en el botÛn ``MÈtricas'' se genera un reporte para todo el proyecto con mÈtricas de los diagramas, indicando su cohesiÛn y acoplamiento
+  Haciendo click en el bot√≥n ``M√©tricas'' se genera un reporte para todo el proyecto con m√©tricas de los diagramas, indicando su cohesi√≥n y acoplamiento
   entre otras.
 
   \subsubsection{Zoom}
   
-  Con los tres botones indicados se puede aumentar, achicar y reestablecer el tamaÒo en pantalla del diagrama.
+  Con los tres botones indicados se puede aumentar, achicar y reestablecer el tama√±o en pantalla del diagrama.
   
   
   \subsubsection{Crear atributo}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{imagenes/atributo.png}
-    \caption{CreaciÛn de un nuevo atributo}
+    \caption{Creaci√≥n de un nuevo atributo}
   \end{figure}
   
-  Haciendo click en el botÛn ``Nuevo atributo'' de las figuras 4 y 5, se abre una ventana que permite el ingreso de atributos de una entidad nueva o una 
-  relaciÛn. 
-  Se debe ingresar el nombre, el tipo, las cardinalidades, y en caso de ser calculado, se debe ingresar tambiÈn la expresiÛn de c·lculo.
-  Haciendo click en el botÛn ``Nuevo atributo'' se permite ingresar atributos secundarios o hijos del atributo actual.
+  Haciendo click en el bot√≥n ``Nuevo atributo'' de las figuras 4 y 5, se abre una ventana que permite el ingreso de atributos de una entidad nueva o una 
+  relaci√≥n. 
+  Se debe ingresar el nombre, el tipo, las cardinalidades, y en caso de ser calculado, se debe ingresar tambi√©n la expresi√≥n de c√°lculo.
+  Haciendo click en el bot√≥n ``Nuevo atributo'' se permite ingresar atributos secundarios o hijos del atributo actual.
   
   \subsubsection{Modificar componentes}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{imagenes/botonDerecho.png}
-    \caption{Men˙ de un componente.}
+    \caption{Men√∫ de un componente.}
   \end{figure}
   
   Haciendo click derecho sobre un componente se tiene acceso a las opciones para eliminar o modificar un componente.
-  En caso de que el componente sea una entidad nueva, figurar· entre las opciones la posibilidad de crear identificadores.
+  En caso de que el componente sea una entidad nueva, figurar√° entre las opciones la posibilidad de crear identificadores.
   
   \subsubsection{Crear identificador}
     \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/identificador.png}
-    \caption{CreaciÛn de identificadores.}
+    \caption{Creaci√≥n de identificadores.}
   \end{figure}
 
-  Para crear un identificador en una entidad nueva, se debe seleccionar al menos un atributo de la lista. En caso de ser una entidad dÈbil,
-  se debe seleccionar tambiÈn la entidad fuerte de la cual depende.
+  Para crear un identificador en una entidad nueva, se debe seleccionar al menos un atributo de la lista. En caso de ser una entidad d√©bil,
+  se debe seleccionar tambi√©n la entidad fuerte de la cual depende.
   
-  \subsubsection{Men˙}
+  \subsubsection{Men√∫}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{imagenes/menu.png}
-    \caption{Menu de la aplicaciÛn.}
+    \caption{Menu de la aplicaci√≥n.}
   \end{figure}
   
-  El men˙ de la aplicaciÛn contiene las siguientes opciones:
+  El men√∫ de la aplicaci√≥n contiene las siguientes opciones:
   \begin{itemize}
    \item \textbf{Nuevo:} Abre un proyecto nuevo con un diagrama principal en blanco.
    \item \textbf{Abrir:} Abre un proyecto previamente guardado.
    \item \textbf{Guardar:} Guarda el proyecto actual.
-   \item \textbf{Guardar como:} Permite el ingreso de la ubicaciÛn y guarda el proyecto actual.
-   \item \textbf{ConfiguraciÛn de la p·gina:} Permite configurar el tamaÒo y la orientaciÛn de la p·gina para realizar la impresiÛn.
-   \item \textbf{Vista previa de impresiÛn:} Muestra una vista de como quedar· la impresiÛn.
-   \item \textbf{Imprimir:} Realiza la impresiÛn del diagrama actual.
+   \item \textbf{Guardar como:} Permite el ingreso de la ubicaci√≥n y guarda el proyecto actual.
+   \item \textbf{Configuraci√≥n de la p√°gina:} Permite configurar el tama√±o y la orientaci√≥n de la p√°gina para realizar la impresi√≥n.
+   \item \textbf{Vista previa de impresi√≥n:} Muestra una vista de como quedar√° la impresi√≥n.
+   \item \textbf{Imprimir:} Realiza la impresi√≥n del diagrama actual.
    \item \textbf{Exportar:} Exporta el diagrama actual en formato png o jpg.
    \item \textbf{Cerrar:} Cierra el proyecto actual.
-   \item \textbf{Salir:} Sale de la aplicaciÛn.
+   \item \textbf{Salir:} Sale de la aplicaci√≥n.
   \end{itemize}
 
   
