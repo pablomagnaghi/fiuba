@@ -16,6 +16,8 @@ with its full commit history; the code is kept as written at the time.
 | [`7507-los-pooglins`](7507-los-pooglins) | 75.07 Algoritmos y Programación III | Java | *Los Pooglins*: a puzzle game in the style of guiding creatures to an exit, with block types (fire, ice, rock, black hole, tunnels), abilities, level files and unit tests; object-oriented design |
 | [`7507-java-test`](7507-java-test) | 75.07 Algoritmos y Programación III | Java | *AlgoChat*: the model of a messaging app (users, contacts, one-to-one and group chats, sent and received messages), built test-first with JUnit |
 | [`7507-dragon-ball`](7507-dragon-ball) | 75.07 Algoritmos y Programación III | Java (JavaFX) | A two-player turn-based strategy game on a board with *Dragon Ball*-themed characters: moves, attacks, special attacks and transformations; MVC with a JavaFX UI, JUnit tests and an Ant + Ivy build |
+| [`7512-tp1`](7512-tp1) | 75.12 Análisis Numérico I | C | Solving large sparse linear systems with the SOR iterative method (successive over-relaxation) on banded matrices: convergence by relaxation factor, stopping criteria with the infinity norm, and iteration tables |
+| [`7512-tp2`](7512-tp2) | 75.12 Análisis Numérico I | C | Solving ordinary differential equations with explicit and implicit Euler (using Newton's method) and second-order Runge–Kutta, comparing results across step sizes |
 | [`7506-ppmc`](7506-ppmc) | 75.06 Organización de Datos | C++ | File compressor and decompressor using **PPMC** (prediction by partial matching) with arithmetic coding, plus compression-ratio, time and memory benchmarks |
 
 ## Systems and low level
