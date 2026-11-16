@@ -92,5 +92,5 @@ cv <- cv.glm(Auto, glm.fit,K=10)
 str(cv)
 error <- cv$delta[1]
 
-# ploteo la evolución
+# ploteo la evoluciÃ³n
 plot(1:5,cv.error10,xlab="grado", ylab="error", type = "b", col="blue" )

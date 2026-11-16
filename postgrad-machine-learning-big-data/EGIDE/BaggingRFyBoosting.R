@@ -10,7 +10,7 @@ set.seed(1)
 train = sample(1:nrow(Boston), nrow(Boston)/2)
 
 # recordemos que bagging es un caso especial de RF en el que m = p.
-# Por consiguiente la función randomForest() se puede usar tanto para generar modelos 
+# Por consiguiente la funciÃ³n randomForest() se puede usar tanto para generar modelos 
 # de bagging como de RF
 
 
@@ -18,8 +18,8 @@ bag.boston=randomForest(medv~.,data=Boston,subset=train,mtry=13,importance=TRUE)
 bag.boston
 
 # El argumento mtry = 13 indica que los 13 predictores deben considerarse
-# para cada partición del árbol, en otras palabras, o sea: bagging 
-# ¿Funciona bien el modelo de bagging en el set de validación?
+# para cada particiÃ³n del Ã¡rbol, en otras palabras, o sea: bagging 
+# Â¿Funciona bien el modelo de bagging en el set de validaciÃ³n?
 
 
 yhat.bag = predict(bag.boston,newdata=Boston[-train,])
@@ -28,25 +28,25 @@ abline(0,1)
 mean((yhat.bag - Boston[-train,"medv"])^2)
 
 # Podriamos cambiar
-# el número de árboles generados por randomForest () usando el argumento ntree:
+# el nÃºmero de Ã¡rboles generados por randomForest () usando el argumento ntree:
 
 
-#  Voy a probar con menos cantidad de árboles 
+#  Voy a probar con menos cantidad de Ã¡rboles 
 bag.boston=randomForest(medv~.,data=Boston,subset=train,mtry=13,ntree=40)
 yhat.bag = predict(bag.boston,newdata=Boston[-train,])
 
 mean((yhat.bag-Boston[-train,"medv"])^2)
 
-# Ahora probemos con Random Forest. El único argumento que modificaremos es la cant de predictores
-# a utilizar para entrenar cada árbol:  mtry. Por defecto, randomForest ()
-# usa  p/3 variables al construir un RF de árboles de regresión, y
-# raizcuadrada(p) al construir un RF de árboles de clasificación. Nosotros usaremos
+# Ahora probemos con Random Forest. El Ãºnico argumento que modificaremos es la cant de predictores
+# a utilizar para entrenar cada Ã¡rbol:  mtry. Por defecto, randomForest ()
+# usa  p/3 variables al construir un RF de Ã¡rboles de regresiÃ³n, y
+# raizcuadrada(p) al construir un RF de Ã¡rboles de clasificaciÃ³n. Nosotros usaremos
 # mtry = 6.
 
 set.seed(1)
 rf.boston=randomForest(medv~.,data=Boston,subset=train,mtry=6,importance=TRUE)
 
-# Usando la función importance(), podemos ver la importancia de cada predictor
+# Usando la funciÃ³n importance(), podemos ver la importancia de cada predictor
 
 yhat.rf = predict(rf.boston,newdata=Boston[-train,])
 mean((yhat.rf-Boston[-train,"medv"])^2)
@@ -54,12 +54,12 @@ importance(rf.boston)
 
 
 # Se utilizan dos medidas de performance por variable predictora. La primera , %IncMSE
-# es el promedio de la disminución de la exactitud (accuracy) en las predicciones 
-# cuando la  variable en cuestión se excluye del modelo. La segunda mide 
-# la disminución total en la impureza del nodo que resulta de las particiones realizadas 
-# sobre esa variable, promediada en todos los árboles.
-# En el caso de árboles de regresión, la impureza del nodo se mide por el SCR, y 
-# para árboles de clasificación por la desviación. 
+# es el promedio de la disminuciÃ³n de la exactitud (accuracy) en las predicciones 
+# cuando la  variable en cuestiÃ³n se excluye del modelo. La segunda mide 
+# la disminuciÃ³n total en la impureza del nodo que resulta de las particiones realizadas 
+# sobre esa variable, promediada en todos los Ã¡rboles.
+# En el caso de Ã¡rboles de regresiÃ³n, la impureza del nodo se mide por el SCR, y 
+# para Ã¡rboles de clasificaciÃ³n por la desviaciÃ³n. 
 
 # ordenada por %IncMSE
 importance(rf.boston)[rev(order(importance(rf.boston)[,1])),]
@@ -82,26 +82,26 @@ library(gbm)
 
 set.seed(1)
 
-# EL argumento "dsitribution" es Gaussain, porque la función de pérdida es la suma de los cuadrados del error
-# por ser una estimación de una variable cuantitativa (regresión)
+# EL argumento "dsitribution" es Gaussain, porque la funciÃ³n de pÃ©rdida es la suma de los cuadrados del error
+# por ser una estimaciÃ³n de una variable cuantitativa (regresiÃ³n)
 # interaction.depth limita la profunidad (niveles de Particiones/ramificaciones) 
-# de cada árbol.
+# de cada Ã¡rbol.
 
 boost.boston=gbm(medv~.,data=Boston[train,],distribution="gaussian",n.trees=5000,
                  interaction.depth=4)
 
-# la función summary nos dá el ranking de variables y las grafica
+# la funciÃ³n summary nos dÃ¡ el ranking de variables y las grafica
 summary(boost.boston)
 
 str(boost.boston)
 
-# predicciones en el set de validación
+# predicciones en el set de validaciÃ³n
 yhat.boost=predict(boost.boston,newdata=Boston[-train,],n.trees=5000)
 mean((yhat.boost-Boston[-train,"medv"])^2)
 
-# El MSE de prueba obtenido es bueno; similar a la MSE de validación para RF
+# El MSE de prueba obtenido es bueno; similar a la MSE de validaciÃ³n para RF
 # y mejor  al de bagging. Si queremos, podemos correr el alg de boosting
-# con un valor diferente del parámetro de regularización lambda . El valor por defecto
+# con un valor diferente del parÃ¡metro de regularizaciÃ³n lambda . El valor por defecto
 # es 0.001. Probemos con lambda = 0.2.
 
 boost.boston=gbm(medv~.,data=Boston[train,],distribution="gaussian",

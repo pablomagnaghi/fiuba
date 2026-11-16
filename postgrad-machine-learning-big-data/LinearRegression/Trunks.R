@@ -26,14 +26,14 @@ plot(Cerezos$vol, Cerezos$alt)
 # aunque esto debe confirmarse mediante metodos analiticos.
 
 #########################
-# �Cual es la recta de regresion lineal simple que considera a la altura 
+# ¿Cual es la recta de regresion lineal simple que considera a la altura 
 # como variable dependiente y al volumen como variable independiente? 
 # Interpreta los parametros de esa recta.
 
 reg_lin <- lm(formula = alt ~ vol, data = Cerezos)
 reg_lin
 
-# La recta de regresión lineal simple es
+# La recta de regresiÃ³n lineal simple es
 # alt = 48.336 + 1.601 * vol
 
 # Los dos parametros de la recta se interpretan del siguiente modo: 
@@ -42,20 +42,20 @@ reg_lin
 # en el volumen del tronco del cerezo, se espera un aumento en su altura de 1.601 pies.
 
 #########################
-# �Son significativos estos parametros? 
-# �Que puede decirse del ajuste del modelo a los datos?
+# ¿Son significativos estos parametros? 
+# ¿Que puede decirse del ajuste del modelo a los datos?
 
 summary(reg_lin)
 
 # Considerando un nivel de significacion del 5%, ambos parametros 
 # son significativamente distintos de 0, ya que los p-valores 
-# asociados a los contrastes t de Student de los dos parámetros son inferiores a 0.05.
+# asociados a los contrastes t de Student de los dos parÃ¡metros son inferiores a 0.05.
 
-# El ajuste del modelo a los datos es aceptable, ya que el valor de R² es de 0.7206.
+# El ajuste del modelo a los datos es aceptable, ya que el valor de RÂ² es de 0.7206.
 
 #########################
-# �Cual es la correlacion lineal de Pearson entre ambas variables? 
-# �Es significativa?
+# ¿Cual es la correlacion lineal de Pearson entre ambas variables? 
+# ¿Es significativa?
   
 cor(Cerezos$vol, Cerezos$alt)# El coeficiente de correlacion lineal de Pearson entre las 
 # dos variables es de 0.8488805.
@@ -67,7 +67,7 @@ cor.test(Cerezos$vol, Cerezos$alt)
 # variables pueda considerarse 0.
 
 #########################
-# �Cual es la recta de regresion lineal si se considera 
+# ¿Cual es la recta de regresion lineal si se considera 
 # tambien como variable independiente el diametro?
 
 reg_lin2 <- lm(formula = alt ~ vol + diam)
