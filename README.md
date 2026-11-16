@@ -1,7 +1,7 @@
 # FIUBA
 
 Coursework from my Software Engineering degree at the **Facultad de Ingeniería, Universidad de Buenos Aires
-(FIUBA)**; the commit history spans 2011–2017. Most projects were team assignments. Each folder is one of my original repositories, imported
+(FIUBA)**; the commit history spans 2011–2018. Most projects were team assignments. Each folder is one of my original repositories, imported
 with its full commit history; the code is kept as written at the time.
 
 ## Algorithms and data structures
@@ -40,6 +40,12 @@ with its full commit history; the code is kept as written at the time.
 | [`7552-tp`](7552-tp) | 75.52 Taller de Programación II | C++ | A desktop modeling tool for entity–relationship diagrams: entities, attributes, relationships, hierarchies and identifiers, with wizards, a tree view and diagram export |
 | [`red-social-educativa`](red-social-educativa) | 75.99 Trabajo Profesional | Groovy (Grails) | An educational social network web app: administrators, mentors and learners, courses, activities and forums, with services and Spock specs |
 
+## Postgraduate
+
+| Folder | Course | Language | What it is |
+|---|---|---|---|
+| [`postgrad-machine-learning-big-data`](postgrad-machine-learning-big-data) | Postgraduate course: Machine Learning and Big Data (2018) | R | Statistical learning in R: correlation, linear and multiple regression, Ridge and Lasso, non-linear models, decision trees, bagging, random forests and boosting, SVM, Naive Bayes, KNN, PCA and clustering, cross-validation and the bootstrap, ISLR exercises, and a final project predicting a bank marketing campaign (data cleaning, feature engineering, model comparison, a tuned random forest) |
+
 ## Electives: diagnosis, robotics and manufacturing
 
 | Folder | Course | Language | What it is |
@@ -53,5 +59,5 @@ with its full commit history; the code is kept as written at the time.
 
 ---
 
-All projects are from 2011–2017 and are kept for reference. Current work is on my
+All projects are from 2011–2018 and are kept for reference. Current work is on my
 [GitHub profile](https://github.com/pablomagnaghi) and [portfolio](https://pablomagnaghi.com).
